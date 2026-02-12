@@ -47,23 +47,8 @@ const TerminalComponent = dynamic(
   }
 );
 
-const WebContainerTerminal = dynamic(
-  () =>
-    import("@/components/webcontainer-terminal").then(
-      (m) => m.WebContainerTerminal
-    ),
-  {
-    loading: () => <Skeleton className="w-full h-80 rounded-lg" />,
-    ssr: false,
-  }
-);
-
-// Track categories that get a real WebContainer terminal
-const WEB_CONTAINER_CATEGORIES = new Set([
-  "web",        // frontend, backend, full-stack
-  "data-ai",    // data-analyst, ai-engineer, etc.
-  "mobile",     // android, ios
-]);
+// WebContainerTerminal available but requires iframe isolation (future sprint)
+// For now, all tracks use the simulated terminal to avoid COEP/YouTube conflicts
 
 
 interface LessonClientProps {
@@ -357,17 +342,9 @@ export function LessonClient({
                     <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
                     <div className="h-3 w-3 rounded-full bg-green-500/80" />
                   </div>
-                  <span className="text-xs text-zinc-400 ml-2">
-                    {WEB_CONTAINER_CATEGORIES.has(track.category)
-                      ? "Terminal (Node.js)"
-                      : "Terminal"}
-                  </span>
+                  <span className="text-xs text-zinc-400 ml-2">Terminal</span>
                 </div>
-                {WEB_CONTAINER_CATEGORIES.has(track.category) ? (
-                  <WebContainerTerminal />
-                ) : (
-                  <TerminalComponent />
-                )}
+                <TerminalComponent />
               </Card>
 
               {session && (
