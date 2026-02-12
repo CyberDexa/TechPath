@@ -1,8 +1,5 @@
-"use client";
-
-import { use } from "react";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { curriculum, getModule } from "@/lib/curriculum";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -11,19 +8,33 @@ import {
   ArrowLeft,
   ArrowRight,
   BookOpen,
-  CheckCircle,
   Clock,
   FolderGit2,
   Play,
   Terminal,
 } from "lucide-react";
+import type { Metadata } from "next";
 
-export default function ModulePage({
-  params,
-}: {
+interface ModulePageProps {
   params: Promise<{ trackId: string; moduleId: string }>;
-}) {
-  const { trackId, moduleId } = use(params);
+}
+
+export async function generateMetadata({
+  params,
+}: ModulePageProps): Promise<Metadata> {
+  const { trackId, moduleId } = await params;
+  const track = curriculum.find((t) => t.id === trackId);
+  const mod = getModule(moduleId);
+  if (!track || !mod) return { title: "Module Not Found" };
+
+  return {
+    title: `${mod.title} | ${track.title} | TechPath`,
+    description: mod.description,
+  };
+}
+
+export default async function ModulePage({ params }: ModulePageProps) {
+  const { trackId, moduleId } = await params;
   const track = curriculum.find((t) => t.id === trackId);
   const mod = getModule(moduleId);
 

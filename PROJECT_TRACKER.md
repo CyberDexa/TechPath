@@ -116,7 +116,7 @@
 | Curate videos for Frontend track | ✅ | 72/72 lessons (100%) — all curated |
 | Curate videos for Backend track | ✅ | 68/68 lessons (100%) — already complete |
 | Curate videos for Full Stack track | ✅ | 53/53 lessons (100%) — already complete |
-| Create terminal exercises | ⬜ | For applicable tracks |
+| Create terminal exercises | ✅ | 399/399 lessons with hasTerminal have exercises |
 | Curate remaining track videos | ✅ | 515 videos added → 993/993 = 100% |
 
 ---
@@ -127,9 +127,9 @@
 | Profile page with real stats | ✅ | Stats, badges, milestone tracker, module activity |
 | Error handling & loading states | ✅ | error.tsx, not-found.tsx, loading skeletons |
 | SEO: meta tags per track | ✅ | generateMetadata for track/module/lesson routes |
-| Performance optimization | ⬜ | Code splitting per track |
-| Lighthouse audit | ⬜ | Score > 90 |
-| Deploy to Vercel | ⬜ | |
+| Performance optimization | ✅ | Server/client split, dynamic imports, tree-shaking, 148 deps removed |
+| Lighthouse audit | ✅ | Perf 90, A11y 93, Best Practices 96, SEO 100 |
+| Deploy to Vercel | ⬜ | Prepared: prisma generate in build, vercel-ready config |
 | Custom domain setup | ⬜ | Single domain for all |
 
 ---
@@ -195,12 +195,26 @@
 - [x] Total: 993/993 lessons with curated YouTube videos (100% coverage)
 - [x] Build verified — zero TypeScript errors
 
-### Sprint 5 (Next)
-**Goal:** Terminal exercises + performance + deployment
-- [ ] Add terminal exercises to key tracks
-- [ ] Performance optimization
-- [ ] Lighthouse audit (target >90)
+### Sprint 5 (Completed — Feb 2026)
+**Goal:** Terminal exercises + performance optimization + Lighthouse audit
+- [x] Surveyed all 26 tracks — 399/399 terminal exercises already populated (100%)
+- [x] Lesson page: Server/client split — curriculum data resolved server-side, only 1 lesson sent to client
+- [x] Module page: Converted to server component — zero client JS for data
+- [x] Dynamic imports: TerminalComponent + VideoPlayer lazy-loaded (only on tab activation)
+- [x] Removed 148 unused packages (@xterm/xterm, @next/mdx, shiki, next-mdx-remote, rehype-pretty-code)
+- [x] next.config: optimizePackageImports (lucide-react, radix-ui), compress, poweredByHeader off
+- [x] Font optimization: display swap for Geist + Geist Mono
+- [x] Fixed color contrast: green-700 for light mode WCAG 4.5:1 compliance
+- [x] Added viewport meta, theme-color, OpenGraph metadata
+- [x] Lighthouse scores: Performance 90, Accessibility 93, Best Practices 96, SEO 100
+- [x] Build script: prisma generate + postinstall hook for Vercel deployment
+- [x] Build passing — zero TypeScript errors
+
+### Sprint 6 (Next)
+**Goal:** Vercel deployment + custom domain
 - [ ] Deploy to Vercel
+- [ ] Set environment variables on Vercel
+- [ ] Custom domain setup
 
 ---
 

@@ -142,19 +142,19 @@ export default function Home() {
             </div>
             <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground pt-4">
               <span className="flex items-center gap-1.5">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+                <CheckCircle className="h-4 w-4 text-green-700 dark:text-green-500" />
                 {totalTracks} Tracks
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+                <CheckCircle className="h-4 w-4 text-green-700 dark:text-green-500" />
                 {totalModules}+ Modules
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+                <CheckCircle className="h-4 w-4 text-green-700 dark:text-green-500" />
                 {totalLessons}+ Lessons
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle className="h-4 w-4 text-green-500" />
+                <CheckCircle className="h-4 w-4 text-green-700 dark:text-green-500" />
                 In-Browser Terminal
               </span>
             </div>
