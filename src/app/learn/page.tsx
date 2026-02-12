@@ -10,14 +10,17 @@ import {
   getTrackLessonCount,
 } from "@/lib/curriculum";
 import type { TrackCategory } from "@/lib/curriculum";
+import { useProgress } from "@/hooks/use-progress";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Progress } from "@/components/ui/progress";
 import {
   BookOpen,
   Terminal,
   ArrowRight,
+  CheckCircle,
   Play,
   FolderGit2,
   Search,
@@ -96,6 +99,7 @@ function LearnPageSkeleton() {
 function LearnPageContent() {
   const searchParams = useSearchParams();
   const trackParam = searchParams.get("track");
+  const { isLessonCompleted, getModuleCompletedCount } = useProgress();
 
   const [activeCategory, setActiveCategory] = useState<
     TrackCategory | "all"
@@ -222,6 +226,11 @@ function LearnPageContent() {
                 const videoCount = mod.lessons.filter(
                   (l) => l.videoId
                 ).length;
+                const completedCount = getModuleCompletedCount(mod.id);
+                const modProgress =
+                  mod.lessons.length > 0
+                    ? (completedCount / mod.lessons.length) * 100
+                    : 0;
 
                 return (
                   <Card
@@ -234,17 +243,35 @@ function LearnPageContent() {
                         <div
                           className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-lg font-bold ${bg} ${text}`}
                         >
-                          {mod.order}
+                          {completedCount >= mod.lessons.length &&
+                          mod.lessons.length > 0 ? (
+                            <CheckCircle className="h-6 w-6" />
+                          ) : (
+                            mod.order
+                          )}
                         </div>
 
                         {/* Module info */}
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-lg font-semibold mb-1">
-                            {mod.title}
-                          </h3>
-                          <p className="text-sm text-muted-foreground mb-3">
+                          <div className="flex items-center gap-2 mb-1">
+                            <h3 className="text-lg font-semibold">
+                              {mod.title}
+                            </h3>
+                            {completedCount > 0 && (
+                              <span className="text-xs text-muted-foreground">
+                                {completedCount}/{mod.lessons.length}
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-sm text-muted-foreground mb-2">
                             {mod.description}
                           </p>
+                          {completedCount > 0 && (
+                            <Progress
+                              value={modProgress}
+                              className="h-1.5 mb-2"
+                            />
+                          )}
                           <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
                             <span className="flex items-center gap-1">
                               <BookOpen className="h-3.5 w-3.5" />
@@ -290,10 +317,16 @@ function LearnPageContent() {
                               href={`/learn/${track.id}/${mod.id}/${lesson.id}`}
                               className="flex items-center gap-2 py-1.5 px-2 rounded-md hover:bg-muted/50 transition-colors text-sm"
                             >
-                              <div className="h-5 w-5 rounded-full border flex items-center justify-center text-[10px] text-muted-foreground shrink-0">
-                                {li + 1}
-                              </div>
-                              <span className="truncate">{lesson.title}</span>
+                              {isLessonCompleted(lesson.id) ? (
+                                <CheckCircle className="h-5 w-5 text-green-500 shrink-0" />
+                              ) : (
+                                <div className="h-5 w-5 rounded-full border flex items-center justify-center text-[10px] text-muted-foreground shrink-0">
+                                  {li + 1}
+                                </div>
+                              )}
+                              <span className={`truncate ${isLessonCompleted(lesson.id) ? "text-muted-foreground line-through" : ""}`}>
+                                {lesson.title}
+                              </span>
                               {lesson.hasTerminal && (
                                 <Terminal className="h-3 w-3 text-muted-foreground shrink-0 ml-auto" />
                               )}

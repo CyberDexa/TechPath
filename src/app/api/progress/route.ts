@@ -150,23 +150,38 @@ async function checkBadges(userId: string) {
     where: { userId, completed: true },
   });
 
+  // Count distinct completed tracks (all lessons in track done)
+  const trackProgress = await prisma.lessonProgress.groupBy({
+    by: ["trackId"],
+    where: { userId, completed: true },
+    _count: { _all: true },
+  });
+
   const existingBadges = await prisma.userBadge.findMany({
     where: { userId },
     select: { badgeId: true },
   });
   const earnedIds = new Set(existingBadges.map((b) => b.badgeId));
 
-  const badgeRules: { id: string; name: string; threshold: number }[] = [
-    { id: "first-lesson", name: "First Steps", threshold: 1 },
-    { id: "five-lessons", name: "Getting Started", threshold: 5 },
-    { id: "ten-lessons", name: "On a Roll", threshold: 10 },
-    { id: "twenty-five-lessons", name: "Quarter Century", threshold: 25 },
-    { id: "fifty-lessons", name: "Halfway Hero", threshold: 50 },
-    { id: "all-lessons", name: "DevOps Master", threshold: 70 },
+  const badgeRules: { id: string; name: string; check: () => boolean }[] = [
+    // Lesson milestones
+    { id: "first-lesson", name: "First Steps", check: () => completedLessons >= 1 },
+    { id: "five-lessons", name: "Getting Started", check: () => completedLessons >= 5 },
+    { id: "ten-lessons", name: "On a Roll", check: () => completedLessons >= 10 },
+    { id: "twenty-five-lessons", name: "Quarter Century", check: () => completedLessons >= 25 },
+    { id: "fifty-lessons", name: "Halfway Hero", check: () => completedLessons >= 50 },
+    { id: "hundred-lessons", name: "Century Club", check: () => completedLessons >= 100 },
+    { id: "two-fifty-lessons", name: "Knowledge Seeker", check: () => completedLessons >= 250 },
+    { id: "five-hundred-lessons", name: "Learning Machine", check: () => completedLessons >= 500 },
+    // Track milestones
+    { id: "first-track-started", name: "Explorer", check: () => trackProgress.length >= 1 },
+    { id: "three-tracks", name: "Multi-Tracker", check: () => trackProgress.length >= 3 },
+    { id: "five-tracks", name: "Polyglot", check: () => trackProgress.length >= 5 },
+    { id: "ten-tracks", name: "Renaissance Dev", check: () => trackProgress.length >= 10 },
   ];
 
   for (const rule of badgeRules) {
-    if (completedLessons >= rule.threshold && !earnedIds.has(rule.id)) {
+    if (rule.check() && !earnedIds.has(rule.id)) {
       await prisma.userBadge.create({
         data: {
           userId,

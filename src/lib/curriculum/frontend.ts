@@ -57,6 +57,9 @@ export const frontendTrack: Track = {
           description:
             "Types of hosting — shared, VPS, dedicated, cloud, and static site hosting.",
           duration: "15 min",
+          videoId: "HAsQ4-ndWic",
+          videoTitle: "Understanding Web Hosting: What it is and Why it's Important",
+          videoChannel: "HostGator",
           hasTerminal: false,
         },
         {
@@ -65,6 +68,9 @@ export const frontendTrack: Track = {
           description:
             "The browser rendering pipeline — parsing HTML, CSS, layout, painting, and compositing.",
           duration: "25 min",
+          videoId: "0IsQqJ7pwhw",
+          videoTitle: "How Browsers Work — JSConf 2017",
+          videoChannel: "JSConf",
           hasTerminal: false,
         },
       ],
@@ -108,6 +114,9 @@ export const frontendTrack: Track = {
           description:
             "Use meaningful tags — header, nav, main, article, section, footer — for accessibility and SEO.",
           duration: "20 min",
+          videoId: "bOUhq46fd5g",
+          videoTitle: "Why & When to Use Semantic HTML Elements over Divs",
+          videoChannel: "ByteGrad",
           hasTerminal: false,
         },
         {
@@ -116,6 +125,9 @@ export const frontendTrack: Track = {
           description:
             "Build interactive forms with input types, validation, labels, and fieldsets.",
           duration: "25 min",
+          videoId: "fNcJuPIZ2WE",
+          videoTitle: "Learn HTML Forms In 25 Minutes",
+          videoChannel: "Web Dev Simplified",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -129,6 +141,9 @@ export const frontendTrack: Track = {
           description:
             "ARIA roles, alt text, keyboard navigation, and screen reader considerations.",
           duration: "20 min",
+          videoId: "2oiBKSjOOFE",
+          videoTitle: "The Only Accessibility Video You Will Ever Need",
+          videoChannel: "A11yCasts",
           hasTerminal: false,
         },
         {
@@ -137,6 +152,9 @@ export const frontendTrack: Track = {
           description:
             "Meta tags, Open Graph, structured data, and HTML best practices for search engines.",
           duration: "15 min",
+          videoId: "DvwS7cV9GmQ",
+          videoTitle: "SEO for Developers in 100 Seconds",
+          videoChannel: "Fireship",
           hasTerminal: false,
         },
       ],
@@ -175,6 +193,9 @@ export const frontendTrack: Track = {
           description:
             "Content, padding, border, margin — how the box model works and box-sizing.",
           duration: "20 min",
+          videoId: "rIO5326FgPE",
+          videoTitle: "Learn CSS Box Model In 8 Minutes",
+          videoChannel: "Web Dev Simplified",
           hasTerminal: false,
         },
         {
@@ -205,6 +226,9 @@ export const frontendTrack: Track = {
           description:
             "Mobile-first design, breakpoints, media queries, and responsive images.",
           duration: "25 min",
+          videoId: "x4u1yp3Msao",
+          videoTitle: "A Practical Guide to Responsive Web Design",
+          videoChannel: "Kevin Powell",
           hasTerminal: false,
         },
         {
@@ -213,6 +237,9 @@ export const frontendTrack: Track = {
           description:
             "Transitions, keyframe animations, transforms, and performance considerations.",
           duration: "20 min",
+          videoId: "YszONjKpgg4",
+          videoTitle: "Learn CSS Animation In 15 Minutes",
+          videoChannel: "Web Dev Simplified",
           hasTerminal: false,
         },
       ],
@@ -262,6 +289,9 @@ export const frontendTrack: Track = {
           description:
             "Function declarations, expressions, arrow functions, closures, and scope.",
           duration: "25 min",
+          videoId: "vKJpN5FAeF4",
+          videoTitle: "Closures Explained in 100 Seconds",
+          videoChannel: "Fireship",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -275,6 +305,9 @@ export const frontendTrack: Track = {
           description:
             "Array methods (map, filter, reduce), object destructuring, spread/rest operators.",
           duration: "30 min",
+          videoId: "R8rmfD9Y5-c",
+          videoTitle: "8 Must Know JavaScript Array Methods",
+          videoChannel: "Web Dev Simplified",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -315,6 +348,9 @@ export const frontendTrack: Track = {
           description:
             "Making HTTP requests, handling responses, error handling, and CORS.",
           duration: "25 min",
+          videoId: "cuEtnrL9-H0",
+          videoTitle: "Learn Fetch API In 6 Minutes",
+          videoChannel: "Web Dev Simplified",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -562,6 +598,9 @@ export const frontendTrack: Track = {
           description:
             "Managing component state with useState, state updates, and derived state.",
           duration: "25 min",
+          videoId: "O6P86uwfdR0",
+          videoTitle: "Learn useState In 15 Minutes",
+          videoChannel: "Web Dev Simplified",
           hasTerminal: false,
         },
         {
@@ -570,6 +609,9 @@ export const frontendTrack: Track = {
           description:
             "Data fetching, subscriptions, cleanup, and dependency arrays.",
           duration: "25 min",
+          videoId: "0ZJgIjIuY7U",
+          videoTitle: "Learn useEffect In 13 Minutes",
+          videoChannel: "Web Dev Simplified",
           hasTerminal: false,
         },
         {
@@ -578,6 +620,9 @@ export const frontendTrack: Track = {
           description:
             "Handling clicks, form submissions, controlled vs uncontrolled components.",
           duration: "20 min",
+          videoId: "XF1_MlZ5l6M",
+          videoTitle: "Learn JavaScript Event Listeners In 18 Minutes",
+          videoChannel: "Web Dev Simplified",
           hasTerminal: false,
         },
         {
@@ -586,6 +631,9 @@ export const frontendTrack: Track = {
           description:
             "Context API for global state, reducers for complex state, and refs for DOM access.",
           duration: "30 min",
+          videoId: "5LrDIWkK_Bc",
+          videoTitle: "Learn useContext In 13 Minutes",
+          videoChannel: "Web Dev Simplified",
           hasTerminal: false,
         },
         {
@@ -643,6 +691,9 @@ export const frontendTrack: Track = {
           description:
             "Generics, utility types, type guards, discriminated unions, and mapped types.",
           duration: "30 min",
+          videoId: "EcCTIExsqmI",
+          videoTitle: "Learn TypeScript Generics In 13 Minutes",
+          videoChannel: "Web Dev Simplified",
           hasTerminal: false,
         },
         {
@@ -844,6 +895,9 @@ export const frontendTrack: Track = {
           description:
             "Cross-Site Scripting attacks, input sanitization, and Content Security Policy.",
           duration: "20 min",
+          videoId: "EoaDgUgS6QA",
+          videoTitle: "Cross-Site Scripting (XSS) Explained",
+          videoChannel: "PwnFunction",
           hasTerminal: false,
         },
         {
@@ -852,6 +906,9 @@ export const frontendTrack: Track = {
           description:
             "Cross-Origin Resource Sharing, CSRF tokens, and SameSite cookies.",
           duration: "20 min",
+          videoId: "4KHiSt0oLJ0",
+          videoTitle: "CORS in 100 Seconds",
+          videoChannel: "Fireship",
           hasTerminal: false,
         },
         {
@@ -895,6 +952,9 @@ export const frontendTrack: Track = {
           description:
             "Session vs JWT, OAuth 2.0, OpenID Connect, and when to use each.",
           duration: "25 min",
+          videoId: "UBUNrFtufWo",
+          videoTitle: "Session vs Token Authentication in 100 Seconds",
+          videoChannel: "Fireship",
           hasTerminal: false,
         },
         {
@@ -903,6 +963,9 @@ export const frontendTrack: Track = {
           description:
             "JSON Web Tokens, storing tokens safely, refresh tokens, and token validation.",
           duration: "25 min",
+          videoId: "7Q17ubqLfaM",
+          videoTitle: "What Is JWT and Why Should You Use JWT",
+          videoChannel: "Web Dev Simplified",
           hasTerminal: false,
         },
         {
@@ -911,6 +974,9 @@ export const frontendTrack: Track = {
           description:
             "Implement GitHub/Google login with OAuth 2.0 and NextAuth/Auth.js.",
           duration: "25 min",
+          videoId: "ZV5yTm4pT8g",
+          videoTitle: "OAuth 2 Explained In Simple Terms",
+          videoChannel: "ByteByteGo",
           hasTerminal: false,
         },
       ],
@@ -954,6 +1020,9 @@ export const frontendTrack: Track = {
           description:
             "Server components, async components, fetch API, caching, and revalidation.",
           duration: "30 min",
+          videoId: "8pzIuLFuv6U",
+          videoTitle: "NextJS Tutorial — Routing, Data Fetching, Server Components",
+          videoChannel: "The Net Ninja",
           hasTerminal: false,
         },
         {
@@ -1052,6 +1121,9 @@ export const frontendTrack: Track = {
           description:
             "Register service workers, cache strategies, and offline-first patterns.",
           duration: "25 min",
+          videoId: "ksXwaWHCW6k",
+          videoTitle: "Intro To Service Workers & Caching",
+          videoChannel: "Traversy Media",
           hasTerminal: false,
         },
         {

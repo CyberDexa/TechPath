@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useSession } from "next-auth/react";
 import {
   curriculum,
@@ -10,14 +10,17 @@ import {
   trackCategories,
   getTrackLessonCount,
 } from "@/lib/curriculum";
+import { useProgress } from "@/hooks/use-progress";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
   BookOpen,
   CheckCircle,
+  Clock,
   Flame,
   Trophy,
   ArrowRight,
@@ -53,13 +56,61 @@ function getColors(color: string) {
 
 export default function DashboardPage() {
   const { data: session } = useSession();
+  const { progress, stats, loading, getModuleCompletedCount } = useProgress();
   const [search, setSearch] = useState("");
 
   const totalLessons = getTotalLessons();
   const totalModules = getTotalModules();
 
-  // Find first incomplete module for "Continue Learning"
-  const nextModule = curriculum[0].modules[0];
+  // Calculate per-track progress
+  const trackProgress = useMemo(() => {
+    const map: Record<string, number> = {};
+    for (const p of progress) {
+      if (p.completed) {
+        map[p.trackId] = (map[p.trackId] ?? 0) + 1;
+      }
+    }
+    return map;
+  }, [progress]);
+
+  // Count completed modules (all lessons in module done)
+  const completedModulesCount = useMemo(() => {
+    let count = 0;
+    for (const track of curriculum) {
+      for (const mod of track.modules) {
+        const done = getModuleCompletedCount(mod.id);
+        if (done >= mod.lessons.length && mod.lessons.length > 0) count++;
+      }
+    }
+    return count;
+  }, [getModuleCompletedCount]);
+
+  // Smart "Continue Learning" — find first incomplete lesson
+  const nextLessonInfo = useMemo(() => {
+    // First try to find a track the user has started but not finished
+    for (const track of curriculum) {
+      const trackDone = trackProgress[track.id] ?? 0;
+      const trackTotal = getTrackLessonCount(track);
+      if (trackDone > 0 && trackDone < trackTotal) {
+        // Find first incomplete lesson in this track
+        for (const mod of track.modules) {
+          for (const lesson of mod.lessons) {
+            if (!progress.some((p) => p.lessonId === lesson.id && p.completed)) {
+              return { lesson, module: mod, track };
+            }
+          }
+        }
+      }
+    }
+    // If no started track, default to first track's first lesson
+    const firstTrack = curriculum[0];
+    const firstMod = firstTrack.modules[0];
+    return { lesson: firstMod.lessons[0], module: firstMod, track: firstTrack };
+  }, [progress, trackProgress]);
+
+  const completedLessons = stats?.completedLessons ?? 0;
+  const currentStreak = stats?.currentStreak ?? 0;
+  const badgeCount = stats?.badges?.length ?? 0;
 
   const filteredTracks = search
     ? curriculum.filter((t) =>
@@ -92,7 +143,7 @@ export default function DashboardPage() {
                 <BookOpen className="h-5 w-5 text-blue-500" />
               </div>
               <div>
-                <p className="text-2xl font-bold">0/{totalLessons}</p>
+                <p className="text-2xl font-bold">{completedLessons}/{totalLessons}</p>
                 <p className="text-xs text-muted-foreground">Lessons Done</p>
               </div>
             </div>
@@ -105,7 +156,7 @@ export default function DashboardPage() {
                 <CheckCircle className="h-5 w-5 text-green-500" />
               </div>
               <div>
-                <p className="text-2xl font-bold">0/{totalModules}</p>
+                <p className="text-2xl font-bold">{completedModulesCount}/{totalModules}</p>
                 <p className="text-xs text-muted-foreground">Modules Done</p>
               </div>
             </div>
@@ -118,7 +169,7 @@ export default function DashboardPage() {
                 <Flame className="h-5 w-5 text-orange-500" />
               </div>
               <div>
-                <p className="text-2xl font-bold">0</p>
+                <p className="text-2xl font-bold">{currentStreak}</p>
                 <p className="text-xs text-muted-foreground">Day Streak</p>
               </div>
             </div>
@@ -131,7 +182,7 @@ export default function DashboardPage() {
                 <Trophy className="h-5 w-5 text-yellow-500" />
               </div>
               <div>
-                <p className="text-2xl font-bold">0</p>
+                <p className="text-2xl font-bold">{badgeCount}</p>
                 <p className="text-xs text-muted-foreground">Badges Earned</p>
               </div>
             </div>
@@ -145,30 +196,29 @@ export default function DashboardPage() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="space-y-2">
               <Badge variant="secondary" className="mb-1">
-                Continue Learning
+                Continue Learning &middot; {nextLessonInfo.track.title}
               </Badge>
-              <h2 className="text-xl font-bold">{nextModule.title}</h2>
+              <h2 className="text-xl font-bold">{nextLessonInfo.lesson.title}</h2>
               <p className="text-sm text-muted-foreground">
-                {nextModule.description}
+                {nextLessonInfo.lesson.description}
               </p>
               <div className="flex items-center gap-4 text-sm text-muted-foreground">
                 <span className="flex items-center gap-1">
                   <BookOpen className="h-3.5 w-3.5" />
-                  {nextModule.lessons.length} lessons
+                  {nextLessonInfo.module.title}
                 </span>
                 <span className="flex items-center gap-1">
-                  <Terminal className="h-3.5 w-3.5" />
-                  {nextModule.lessons.filter((l) => l.hasTerminal).length}{" "}
-                  exercises
+                  <Clock className="h-3.5 w-3.5" />
+                  {nextLessonInfo.lesson.duration}
                 </span>
               </div>
             </div>
             <Link
-              href={`/learn/${nextModule.trackId}/${nextModule.id}/${nextModule.lessons[0].id}`}
+              href={`/learn/${nextLessonInfo.track.id}/${nextLessonInfo.module.id}/${nextLessonInfo.lesson.id}`}
             >
               <Button size="lg" className="gap-2">
                 <Play className="h-4 w-4" />
-                Start Lesson
+                {completedLessons > 0 ? "Continue" : "Start Lesson"}
               </Button>
             </Link>
           </div>
@@ -220,12 +270,24 @@ export default function DashboardPage() {
                     </div>
                   </div>
                   <span className="text-sm font-medium text-muted-foreground">
-                    0%
+                    {lessonCount > 0
+                      ? Math.round(
+                          ((trackProgress[track.id] ?? 0) / lessonCount) * 100
+                        )
+                      : 0}
+                    %
                   </span>
                 </div>
               </CardHeader>
               <CardContent className="space-y-3">
-                <Progress value={0} className="h-2" />
+                <Progress
+                  value={
+                    lessonCount > 0
+                      ? ((trackProgress[track.id] ?? 0) / lessonCount) * 100
+                      : 0
+                  }
+                  className="h-2"
+                />
                 <div className="space-y-1">
                   {track.modules.slice(0, 4).map((mod) => (
                     <Link
@@ -258,16 +320,33 @@ export default function DashboardPage() {
       </div>
 
       {/* Badges */}
-      <h2 className="text-xl font-bold mb-4">Badges</h2>
+      <h2 className="text-xl font-bold mb-4">Badges ({badgeCount})</h2>
       <Card>
         <CardContent className="pt-6">
-          <div className="text-center py-8 text-muted-foreground">
-            <Trophy className="h-12 w-12 mx-auto mb-3 opacity-50" />
-            <p className="font-medium">No badges yet</p>
-            <p className="text-sm">
-              Complete lessons and modules to earn badges!
-            </p>
-          </div>
+          {stats?.badges && stats.badges.length > 0 ? (
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              {stats.badges.map((badge) => (
+                <div
+                  key={badge.id}
+                  className="flex flex-col items-center gap-2 p-4 rounded-lg bg-muted/50 text-center"
+                >
+                  <Trophy className="h-8 w-8 text-yellow-500" />
+                  <p className="text-sm font-medium">{badge.name}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {new Date(badge.earnedAt).toLocaleDateString()}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-8 text-muted-foreground">
+              <Trophy className="h-12 w-12 mx-auto mb-3 opacity-50" />
+              <p className="font-medium">No badges yet</p>
+              <p className="text-sm">
+                Complete lessons and modules to earn badges!
+              </p>
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>

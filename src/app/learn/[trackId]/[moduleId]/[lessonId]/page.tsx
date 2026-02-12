@@ -1,9 +1,11 @@
 "use client";
 
-import { use, useState } from "react";
+import { use, useState, useCallback } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { curriculum, getLesson } from "@/lib/curriculum";
+import { useProgress } from "@/hooks/use-progress";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -15,8 +17,10 @@ import {
   ArrowRight,
   BookOpen,
   CheckCircle,
+  Circle,
   Clock,
   ExternalLink,
+  Loader2,
   Play,
   Terminal,
 } from "lucide-react";
@@ -28,10 +32,16 @@ export default function LessonPage({
 }) {
   const { trackId, moduleId, lessonId } = use(params);
   const result = getLesson(lessonId);
-  const [completed, setCompleted] = useState(false);
+  const { data: session } = useSession();
+  const { progress, loading, updateProgress, isLessonCompleted } =
+    useProgress();
+  const [saving, setSaving] = useState(false);
 
   if (!result) return notFound();
   const { lesson, module: mod, track } = result;
+
+  const completed = isLessonCompleted(lessonId);
+  const lessonProgress = progress.find((p) => p.lessonId === lessonId);
 
   // Find lesson navigation
   const lessonIndex = mod.lessons.findIndex((l) => l.id === lessonId);
@@ -42,7 +52,30 @@ export default function LessonPage({
       : null;
 
   // Default tab
-  const defaultTab = lesson.videoId ? "watch" : lesson.hasTerminal ? "practice" : "read";
+  const defaultTab = lesson.videoId
+    ? "watch"
+    : lesson.hasTerminal
+      ? "practice"
+      : "read";
+
+  const handleMarkComplete = async () => {
+    if (!session) return;
+    setSaving(true);
+    await updateProgress(lessonId, moduleId, trackId, {
+      completed: !completed,
+    });
+    setSaving(false);
+  };
+
+  const handleVideoWatched = async () => {
+    if (!session || lessonProgress?.videoWatched) return;
+    await updateProgress(lessonId, moduleId, trackId, { videoWatched: true });
+  };
+
+  const handleTerminalDone = async () => {
+    if (!session || lessonProgress?.terminalDone) return;
+    await updateProgress(lessonId, moduleId, trackId, { terminalDone: true });
+  };
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl">
@@ -174,6 +207,29 @@ export default function LessonPage({
                   title={lesson.videoTitle ?? lesson.title}
                   channel={lesson.videoChannel ?? ""}
                 />
+                {session && (
+                  <div className="mt-4 pt-4 border-t flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">
+                      {lessonProgress?.videoWatched
+                        ? "Video marked as watched"
+                        : "Done watching? Mark it!"}
+                    </span>
+                    <Button
+                      size="sm"
+                      variant={lessonProgress?.videoWatched ? "secondary" : "outline"}
+                      className="gap-1.5"
+                      disabled={lessonProgress?.videoWatched}
+                      onClick={handleVideoWatched}
+                    >
+                      {lessonProgress?.videoWatched ? (
+                        <CheckCircle className="h-3.5 w-3.5 text-green-500" />
+                      ) : (
+                        <Circle className="h-3.5 w-3.5" />
+                      )}
+                      {lessonProgress?.videoWatched ? "Watched" : "Mark Watched"}
+                    </Button>
+                  </div>
+                )}
               </CardContent>
             </Card>
           </TabsContent>
@@ -210,6 +266,30 @@ export default function LessonPage({
                 </div>
                 <TerminalComponent />
               </Card>
+
+              {session && (
+                <div className="flex items-center justify-between p-4 rounded-lg bg-muted/50 border">
+                  <span className="text-sm text-muted-foreground">
+                    {lessonProgress?.terminalDone
+                      ? "Exercise completed!"
+                      : "Finished the exercise?"}
+                  </span>
+                  <Button
+                    size="sm"
+                    variant={lessonProgress?.terminalDone ? "secondary" : "outline"}
+                    className="gap-1.5"
+                    disabled={lessonProgress?.terminalDone}
+                    onClick={handleTerminalDone}
+                  >
+                    {lessonProgress?.terminalDone ? (
+                      <CheckCircle className="h-3.5 w-3.5 text-green-500" />
+                    ) : (
+                      <Circle className="h-3.5 w-3.5" />
+                    )}
+                    {lessonProgress?.terminalDone ? "Done" : "Mark Exercise Done"}
+                  </Button>
+                </div>
+              )}
             </div>
           </TabsContent>
         )}
@@ -217,15 +297,28 @@ export default function LessonPage({
 
       {/* Mark Complete */}
       <div className="flex justify-center mb-8">
-        <Button
-          size="lg"
-          className="gap-2"
-          variant={completed ? "secondary" : "default"}
-          onClick={() => setCompleted(!completed)}
-        >
-          <CheckCircle className="h-4 w-4" />
-          {completed ? "Completed ✓" : "Mark as Complete"}
-        </Button>
+        {session ? (
+          <Button
+            size="lg"
+            className="gap-2"
+            variant={completed ? "secondary" : "default"}
+            onClick={handleMarkComplete}
+            disabled={saving}
+          >
+            {saving ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <CheckCircle className="h-4 w-4" />
+            )}
+            {completed ? "Completed ✓" : "Mark as Complete"}
+          </Button>
+        ) : (
+          <Link href="/auth/signin">
+            <Button size="lg" className="gap-2">
+              Sign in to track progress
+            </Button>
+          </Link>
+        )}
       </div>
 
       {/* Navigation */}

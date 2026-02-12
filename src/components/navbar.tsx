@@ -27,12 +27,14 @@ import {
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useState } from "react";
+import { useProgress } from "@/hooks/use-progress";
 
 export function Navbar() {
   const { data: session } = useSession();
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { stats } = useProgress();
 
   const navLinks = [
     { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -73,8 +75,10 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           {session && (
             <Badge variant="outline" className="hidden sm:flex gap-1.5 py-1">
-              <Flame className="h-3.5 w-3.5 text-orange-500" />
-              <span className="text-xs font-medium">0 day streak</span>
+              <Flame className={`h-3.5 w-3.5 ${(stats?.currentStreak ?? 0) > 0 ? "text-orange-500" : "text-muted-foreground"}`} />
+              <span className="text-xs font-medium">
+                {stats?.currentStreak ?? 0} day streak
+              </span>
             </Badge>
           )}
 
