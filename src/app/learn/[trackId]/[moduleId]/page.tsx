@@ -4,6 +4,7 @@ import { curriculum, getModule } from "@/lib/curriculum";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { ModuleProgressBar, LessonCheck } from "@/components/module-progress";
 import {
   ArrowLeft,
   ArrowRight,
@@ -59,14 +60,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
       {/* Module Header */}
       <div className="mb-8">
         <div className="flex items-center gap-2 mb-3">
-          <Badge
-            variant="outline"
-            className={
-              trackId === "devops"
-                ? "border-blue-500/30 text-blue-500"
-                : "border-purple-500/30 text-purple-500"
-            }
-          >
+          <Badge variant="outline">
             {track.title} · Module {mod.order}
           </Badge>
         </div>
@@ -89,6 +83,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
             <FolderGit2 className="h-4 w-4" />1 project
           </span>
         </div>
+        <ModuleProgressBar moduleId={moduleId} lessonCount={mod.lessons.length} />
       </div>
 
       {/* Lessons List */}
@@ -102,9 +97,7 @@ export default async function ModulePage({ params }: ModulePageProps) {
             <Card className="group hover:border-primary/30 transition-colors cursor-pointer">
               <CardContent className="py-4">
                 <div className="flex items-center gap-4">
-                  <div className="h-10 w-10 rounded-full border-2 border-muted-foreground/20 flex items-center justify-center text-sm font-medium shrink-0">
-                    {idx + 1}
-                  </div>
+                  <LessonCheck lessonId={lesson.id} index={idx} />
                   <div className="flex-1 min-w-0">
                     <h3 className="font-medium mb-0.5">{lesson.title}</h3>
                     <p className="text-sm text-muted-foreground line-clamp-1">

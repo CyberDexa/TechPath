@@ -37,6 +37,33 @@ export default async function LessonPage({ params }: LessonPageProps) {
       ? mod.lessons[lessonIndex + 1]
       : null;
 
+  // Cross-module navigation: when at edges, link to adjacent module's lessons
+  const modIndex = track.modules.findIndex((m) => m.id === moduleId);
+  let prevModuleLastLesson: { lesson: { id: string; title: string }; moduleId: string } | null = null;
+  let nextModuleFirstLesson: { lesson: { id: string; title: string }; moduleId: string } | null = null;
+
+  if (!prevLesson && modIndex > 0) {
+    const prevMod = track.modules[modIndex - 1];
+    const lastLesson = prevMod.lessons[prevMod.lessons.length - 1];
+    if (lastLesson) {
+      prevModuleLastLesson = {
+        lesson: { id: lastLesson.id, title: lastLesson.title },
+        moduleId: prevMod.id,
+      };
+    }
+  }
+
+  if (!nextLesson && modIndex < track.modules.length - 1) {
+    const nextMod = track.modules[modIndex + 1];
+    const firstLesson = nextMod.lessons[0];
+    if (firstLesson) {
+      nextModuleFirstLesson = {
+        lesson: { id: firstLesson.id, title: firstLesson.title },
+        moduleId: nextMod.id,
+      };
+    }
+  }
+
   return (
     <LessonClient
       lesson={lesson}
@@ -48,6 +75,8 @@ export default async function LessonPage({ params }: LessonPageProps) {
       prevLesson={prevLesson}
       nextLesson={nextLesson}
       lessonIndex={lessonIndex}
+      prevModuleLastLesson={prevModuleLastLesson}
+      nextModuleFirstLesson={nextModuleFirstLesson}
     />
   );
 }

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { useSession } from "next-auth/react";
 import { useProgress } from "@/hooks/use-progress";
@@ -56,6 +57,8 @@ interface LessonClientProps {
   prevLesson: Lesson | null;
   nextLesson: Lesson | null;
   lessonIndex: number;
+  prevModuleLastLesson?: { lesson: { id: string; title: string }; moduleId: string } | null;
+  nextModuleFirstLesson?: { lesson: { id: string; title: string }; moduleId: string } | null;
 }
 
 export function LessonClient({
@@ -68,7 +71,10 @@ export function LessonClient({
   prevLesson,
   nextLesson,
   lessonIndex,
+  prevModuleLastLesson,
+  nextModuleFirstLesson,
 }: LessonClientProps) {
+  const router = useRouter();
   const { data: session } = useSession();
   const { progress, loading, updateProgress, isLessonCompleted } =
     useProgress();
@@ -102,6 +108,50 @@ export function LessonClient({
     if (!session || lessonProgress?.terminalDone) return;
     await updateProgress(lessonId, moduleId, trackId, { terminalDone: true });
   };
+
+  // Compute resolved prev/next URLs for navigation + keyboard shortcuts
+  const prevUrl = prevLesson
+    ? `/learn/${trackId}/${moduleId}/${prevLesson.id}`
+    : prevModuleLastLesson
+      ? `/learn/${trackId}/${prevModuleLastLesson.moduleId}/${prevModuleLastLesson.lesson.id}`
+      : null;
+
+  const nextUrl = nextLesson
+    ? `/learn/${trackId}/${moduleId}/${nextLesson.id}`
+    : nextModuleFirstLesson
+      ? `/learn/${trackId}/${nextModuleFirstLesson.moduleId}/${nextModuleFirstLesson.lesson.id}`
+      : null;
+
+  const prevLabel = prevLesson?.title
+    ?? prevModuleLastLesson?.lesson.title
+    ?? null;
+
+  const nextLabel = nextLesson?.title
+    ?? nextModuleFirstLesson?.lesson.title
+    ?? null;
+
+  // Keyboard shortcuts: ← prev, → next, Enter mark complete
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Ignore when typing in inputs/textareas
+      const tag = (e.target as HTMLElement).tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+
+      if (e.key === "ArrowLeft" && prevUrl) {
+        e.preventDefault();
+        router.push(prevUrl);
+      } else if (e.key === "ArrowRight" && nextUrl) {
+        e.preventDefault();
+        router.push(nextUrl);
+      } else if (e.key === "Enter" && !e.metaKey && !e.ctrlKey && session) {
+        e.preventDefault();
+        handleMarkComplete();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [prevUrl, nextUrl, router, session, completed]);
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl">
@@ -347,13 +397,22 @@ export function LessonClient({
         )}
       </div>
 
+      {/* Keyboard hints */}
+      <div className="flex justify-center mb-4">
+        <div className="flex items-center gap-4 text-xs text-muted-foreground">
+          <span><kbd className="px-1.5 py-0.5 rounded bg-muted border text-[10px] font-mono">←</kbd> Previous</span>
+          <span><kbd className="px-1.5 py-0.5 rounded bg-muted border text-[10px] font-mono">→</kbd> Next</span>
+          {session && <span><kbd className="px-1.5 py-0.5 rounded bg-muted border text-[10px] font-mono">Enter</kbd> Mark Complete</span>}
+        </div>
+      </div>
+
       {/* Navigation */}
       <div className="flex items-center justify-between pt-4 border-t">
-        {prevLesson ? (
-          <Link href={`/learn/${trackId}/${moduleId}/${prevLesson.id}`}>
+        {prevUrl ? (
+          <Link href={prevUrl}>
             <Button variant="ghost" size="sm" className="gap-2">
               <ArrowLeft className="h-4 w-4" />
-              <span className="hidden sm:inline">{prevLesson.title}</span>
+              <span className="hidden sm:inline">{prevLabel}</span>
               <span className="sm:hidden">Previous</span>
             </Button>
           </Link>
@@ -365,10 +424,10 @@ export function LessonClient({
             </Button>
           </Link>
         )}
-        {nextLesson ? (
-          <Link href={`/learn/${trackId}/${moduleId}/${nextLesson.id}`}>
+        {nextUrl ? (
+          <Link href={nextUrl}>
             <Button variant="ghost" size="sm" className="gap-2">
-              <span className="hidden sm:inline">{nextLesson.title}</span>
+              <span className="hidden sm:inline">{nextLabel}</span>
               <span className="sm:hidden">Next</span>
               <ArrowRight className="h-4 w-4" />
             </Button>
