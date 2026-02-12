@@ -146,6 +146,7 @@ function getMessageText(message: { parts?: Array<{ type: string; text?: string }
 }
 
 export function AIChatPanel() {
+  const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [input, setInput] = useState("");
@@ -174,6 +175,11 @@ export function AIChatPanel() {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages]);
+
+  // Mark as mounted after hydration
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Focus input when panel opens
   useEffect(() => {
@@ -207,8 +213,8 @@ export function AIChatPanel() {
     setMessages([]);
   };
 
-  // Don't render the panel at all during SSR
-  if (typeof window === "undefined") return null;
+  // Don't render until after hydration to avoid mismatch
+  if (!mounted) return null;
 
   return (
     <>
