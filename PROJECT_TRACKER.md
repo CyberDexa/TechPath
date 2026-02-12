@@ -117,7 +117,7 @@
 | Curate videos for Backend track | ✅ | 68/68 lessons (100%) — already complete |
 | Curate videos for Full Stack track | ✅ | 53/53 lessons (100%) — already complete |
 | Create terminal exercises | ⬜ | For applicable tracks |
-| Curate remaining track videos | ⬜ | Phase 2-5 tracks |
+| Curate remaining track videos | ✅ | 515 videos added → 993/993 = 100% |
 
 ---
 
@@ -182,9 +182,21 @@
 - [x] SEO: generateMetadata for track, module, lesson routes + static layouts
 - [x] Build passing (Next.js 16.1.6 Turbopack, 13 files, 697 insertions)
 
-### Sprint 4 (Next)
-**Goal:** Remaining track video curation + terminal exercises + deployment
-- [ ] Curate videos for remaining 18 tracks (currently 0–26% coverage)
+### Sprint 4 (Completed — Feb 2026)
+**Goal:** 100% video coverage across all 26 tracks
+- [x] Surveyed all 26 tracks — found 515 missing videos across 18 tracks (48% coverage)
+- [x] Created bulk video injection script (scripts/add-videos.ts)
+- [x] Batch 1: software-architect (40), engineering-manager (30), product-manager (29),
+      server-side-game-dev (25), devrel (25), postgresql (23) — 172 videos
+- [x] Batch 2: data-engineer (42), bi-analyst (32), ios (32), machine-learning (31),
+      data-analyst (30), android (29) — 196 videos  
+- [x] Batch 3: blockchain (27), ai-engineer (27), ux-design (26), game-developer (26),
+      technical-writer (25), ai-data-scientist (16) — 147 videos
+- [x] Total: 993/993 lessons with curated YouTube videos (100% coverage)
+- [x] Build verified — zero TypeScript errors
+
+### Sprint 5 (Next)
+**Goal:** Terminal exercises + performance + deployment
 - [ ] Add terminal exercises to key tracks
 - [ ] Performance optimization
 - [ ] Lighthouse audit (target >90)
