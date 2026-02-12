@@ -17,6 +17,25 @@ const nextConfig: NextConfig = {
 
   // Powered-by header removal (security + tiny perf)
   poweredByHeader: false,
+
+  // Cross-origin isolation headers (required for WebContainers / SharedArrayBuffer)
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Cross-Origin-Embedder-Policy",
+            value: "credentialless",
+          },
+          {
+            key: "Cross-Origin-Opener-Policy",
+            value: "same-origin",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

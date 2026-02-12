@@ -159,8 +159,8 @@
 | Certificate generation | ⬜ | Per-track completion |
 | Admin dashboard for content | ⬜ | Manage curricula |
 | Community forums | ⬜ | |
-| AI tutor integration | ⬜ | |
-| WebContainers real terminal | ⬜ | Replace simulated |
+| AI tutor integration | ✅ | GPT-4o-mini via Vercel AI SDK v6, floating chat panel on all pages |
+| WebContainers real terminal | ✅ | Hybrid: WebContainers for web/data/mobile tracks, simulated for infra/security |
 | MDX lesson content | ⬜ | Rich text lessons |
 | Offline mode | ⬜ | |
 
@@ -252,6 +252,38 @@
 - [x] README.md: full rewrite with architecture, setup, tech stack, curriculum
 - [x] Lighthouse re-audit: Perf 93, A11y 93, Best Practices 100, SEO 100
 - [x] Build passing — zero TypeScript errors
+
+### Sprint 8 (Completed — Feb 2026)
+**Goal:** AI tutor integration + WebContainers real terminal
+- [x] Installed Vercel AI SDK v6 (ai, @ai-sdk/openai, @ai-sdk/react)
+- [x] Installed @webcontainer/api + @xterm/xterm + @xterm/addon-fit
+- [x] Created AI chat API route (POST /api/chat, edge runtime, GPT-4o-mini)
+  - System prompt: TechPath AI learning assistant
+  - Context-aware: receives track/module/lesson info
+  - UIMessage → ModelMessage conversion for v6 compat
+  - Streaming responses via toUIMessageStreamResponse
+- [x] Created AIChatPanel component (floating chat UI)
+  - Available on ALL pages via root layout
+  - Slide-out panel with minimize/maximize/close
+  - Suggested questions (Explain, Code example, What next, Quiz me)
+  - Markdown rendering (code blocks, bold, lists, headers)
+  - Context badge shows current track on /learn/* pages
+  - Bouncing dots loading animation during streaming
+- [x] Created WebContainerTerminal component
+  - Real Node.js environment in browser via @webcontainer/api
+  - xterm.js rendering with Geist Mono font, custom dark theme
+  - Boots a jsh shell with pre-mounted project scaffold
+  - SharedArrayBuffer support detection with fallback message
+  - Auto-resize via FitAddon
+- [x] Hybrid terminal integration in lesson-client
+  - Web/data-ai/mobile tracks → WebContainerTerminal (real Node.js)
+  - Infrastructure/security/design/gaming/management → simulated terminal
+  - Terminal label updates to show "Terminal (Node.js)" for WebContainer
+- [x] Added cross-origin isolation headers in next.config.ts
+  - COEP: credentialless (less restrictive, allows YouTube embeds)
+  - COOP: same-origin (required for SharedArrayBuffer)
+- [x] xterm.css imported globally
+- [x] Build passing — zero TypeScript errors, all 12 routes generated
 
 ---
 

@@ -47,6 +47,25 @@ const TerminalComponent = dynamic(
   }
 );
 
+const WebContainerTerminal = dynamic(
+  () =>
+    import("@/components/webcontainer-terminal").then(
+      (m) => m.WebContainerTerminal
+    ),
+  {
+    loading: () => <Skeleton className="w-full h-80 rounded-lg" />,
+    ssr: false,
+  }
+);
+
+// Track categories that get a real WebContainer terminal
+const WEB_CONTAINER_CATEGORIES = new Set([
+  "web",        // frontend, backend, full-stack
+  "data-ai",    // data-analyst, ai-engineer, etc.
+  "mobile",     // android, ios
+]);
+
+
 interface LessonClientProps {
   lesson: Lesson;
   mod: Module;
@@ -330,7 +349,7 @@ export function LessonClient({
                 </Card>
               )}
 
-              {/* Terminal */}
+              {/* Terminal — WebContainer for web/data/mobile tracks, simulated for infra/security/etc. */}
               <Card className="overflow-hidden">
                 <div className="bg-zinc-900 px-4 py-2 flex items-center gap-2 border-b border-zinc-800">
                   <div className="flex gap-1.5">
@@ -338,9 +357,17 @@ export function LessonClient({
                     <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
                     <div className="h-3 w-3 rounded-full bg-green-500/80" />
                   </div>
-                  <span className="text-xs text-zinc-400 ml-2">Terminal</span>
+                  <span className="text-xs text-zinc-400 ml-2">
+                    {WEB_CONTAINER_CATEGORIES.has(track.category)
+                      ? "Terminal (Node.js)"
+                      : "Terminal"}
+                  </span>
                 </div>
-                <TerminalComponent />
+                {WEB_CONTAINER_CATEGORIES.has(track.category) ? (
+                  <WebContainerTerminal />
+                ) : (
+                  <TerminalComponent />
+                )}
               </Card>
 
               {session && (
