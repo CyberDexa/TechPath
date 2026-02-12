@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { useSession } from "next-auth/react";
 
 interface LessonProgressData {
   lessonId: string;
@@ -21,6 +22,7 @@ interface ProgressStats {
 }
 
 export function useProgress() {
+  const { status } = useSession();
   const [progress, setProgress] = useState<LessonProgressData[]>([]);
   const [stats, setStats] = useState<ProgressStats | null>(null);
   const [loading, setLoading] = useState(true);
@@ -52,9 +54,13 @@ export function useProgress() {
   }, []);
 
   useEffect(() => {
-    fetchProgress();
-    fetchStats();
-  }, [fetchProgress, fetchStats]);
+    if (status === "authenticated") {
+      fetchProgress();
+      fetchStats();
+    } else if (status === "unauthenticated") {
+      setLoading(false);
+    }
+  }, [status, fetchProgress, fetchStats]);
 
   const updateProgress = useCallback(
     async (
