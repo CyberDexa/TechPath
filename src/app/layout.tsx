@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   title: "TechPath | Master Any Tech Role — Zero to Hero",
   description:
     "26 structured learning tracks covering every role on roadmap.sh. Interactive terminal exercises, curated video tutorials, and hands-on projects — all free.",
-  metadataBase: new URL("https://devops-mlops-learning-app.vercel.app"),
+  metadataBase: new URL("https://techpath-seven.vercel.app"),
   openGraph: {
     title: "TechPath | Master Any Tech Role — Zero to Hero",
     description:
