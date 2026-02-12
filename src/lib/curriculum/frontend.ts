@@ -416,6 +416,9 @@ export const frontendTrack: Track = {
           description:
             "Push to GitHub, create pull requests, code review, and GitHub Pages.",
           duration: "20 min",
+          videoId: "8lGpZkjnkt4",
+          videoTitle: "GitHub Pull Request in 100 Seconds",
+          videoChannel: "Fireship",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -429,6 +432,9 @@ export const frontendTrack: Track = {
           description:
             "Ignore node_modules, .env, build artifacts, and write meaningful commits.",
           duration: "15 min",
+          videoId: "ErJyWO8TGoM",
+          videoTitle: "Git Tutorial — .gitignore file",
+          videoChannel: "codebasics",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -477,6 +483,9 @@ export const frontendTrack: Track = {
           description:
             "Alternatives to npm — why they exist, when to use them, and key differences.",
           duration: "15 min",
+          videoId: "ZIKDJBrk56k",
+          videoTitle: "I Finally Changed Package Managers",
+          videoChannel: "Theo - t3.gg",
           hasTerminal: false,
         },
         {
@@ -485,6 +494,9 @@ export const frontendTrack: Track = {
           description:
             "Define custom scripts for dev, build, test, and lint in package.json.",
           duration: "15 min",
+          videoId: "XHtYRaIzNUM",
+          videoTitle: "Node.js Tutorial — npm Scripts",
+          videoChannel: "Codevolution",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -528,6 +540,9 @@ export const frontendTrack: Track = {
           description:
             "Breakpoint prefixes (sm, md, lg, xl), responsive utilities, and mobile-first approach.",
           duration: "20 min",
+          videoId: "VYFjvMfVv2o",
+          videoTitle: "Tailwind CSS Tutorial — Responsive Classes",
+          videoChannel: "The Net Ninja",
           hasTerminal: false,
         },
         {
@@ -536,6 +551,9 @@ export const frontendTrack: Track = {
           description:
             "Cards, navbars, buttons, modals, and forms using Tailwind utilities.",
           duration: "25 min",
+          videoId: "pfaSUYaSgRo",
+          videoTitle: "Ultimate Tailwind CSS Tutorial — Build a Discord-inspired Navbar",
+          videoChannel: "Fireship",
           hasTerminal: false,
         },
         {
@@ -544,6 +562,9 @@ export const frontendTrack: Track = {
           description:
             "Custom colors, fonts, spacing, plugins, and the tailwind.config.js file.",
           duration: "20 min",
+          videoId: "6biMWgD6_JY",
+          videoTitle: "Tailwind CSS v4 Full Course — Master Tailwind in One Hour",
+          videoChannel: "JavaScript Mastery",
           hasTerminal: false,
         },
       ],
@@ -642,6 +663,9 @@ export const frontendTrack: Track = {
           description:
             "Custom hooks, render props, compound components, and code organization.",
           duration: "25 min",
+          videoId: "6ThXsUwLWvc",
+          videoTitle: "Learn Custom Hooks In 10 Minutes",
+          videoChannel: "Web Dev Simplified",
           hasTerminal: false,
         },
       ],
@@ -702,6 +726,9 @@ export const frontendTrack: Track = {
           description:
             "Typing components, props, hooks, events, and API responses in React.",
           duration: "25 min",
+          videoId: "qvdnTfyv7y8",
+          videoTitle: "React TypeScript Tutorial — Component Prop",
+          videoChannel: "Codevolution",
           hasTerminal: false,
         },
       ],
@@ -735,6 +762,9 @@ export const frontendTrack: Track = {
           description:
             "Bundling, minification, code splitting, tree shaking, and the build pipeline.",
           duration: "15 min",
+          videoId: "5IG4UmULyoA",
+          videoTitle: "Module Bundlers Explained — Webpack, Rollup, Parcel, and Snowpack",
+          videoChannel: "Fireship",
           hasTerminal: false,
         },
         {
@@ -759,6 +789,9 @@ export const frontendTrack: Track = {
           description:
             "Alternative bundlers and their roles in the modern toolchain.",
           duration: "15 min",
+          videoId: "KCrXgy8qtjM",
+          videoTitle: "Vite in 100 Seconds",
+          videoChannel: "Fireship",
           hasTerminal: false,
         },
       ],
@@ -786,6 +819,9 @@ export const frontendTrack: Track = {
           description:
             "Install ESLint, configure rules, plugins, and integrate with your editor.",
           duration: "20 min",
+          videoId: "eieTlMwCwWU",
+          videoTitle: "How to Set Up ESLint — Beginner's Guide",
+          videoChannel: "The Common Coder",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -799,6 +835,9 @@ export const frontendTrack: Track = {
           description:
             "Auto-format code with Prettier, configure rules, and integrate with ESLint.",
           duration: "15 min",
+          videoId: "DqfQ4DPnRqI",
+          videoTitle: "How To Setup Prettier",
+          videoChannel: "Web Dev Simplified",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -831,6 +870,9 @@ export const frontendTrack: Track = {
           description:
             "Types of tests, testing pyramid, test-driven development, and when to test.",
           duration: "20 min",
+          videoId: "u6QfIXgjwGQ",
+          videoTitle: "Software Testing Explained in 100 Seconds",
+          videoChannel: "Fireship",
           hasTerminal: false,
         },
         {
@@ -839,6 +881,9 @@ export const frontendTrack: Track = {
           description:
             "Write unit tests, describe/it blocks, assertions, mocking, and test coverage.",
           duration: "30 min",
+          videoId: "XdDZKeM5_pQ",
+          videoTitle: "Unit Testing (Vitest) Tutorial — What is Unit Testing?",
+          videoChannel: "The Net Ninja",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -852,6 +897,9 @@ export const frontendTrack: Track = {
           description:
             "Test React components — render, query, fire events, and assert on output.",
           duration: "30 min",
+          videoId: "8Xwq35cPwYg",
+          videoTitle: "React Testing Tutorial for Beginners",
+          videoChannel: "Programming with Mosh",
           hasTerminal: false,
         },
         {
@@ -917,6 +965,9 @@ export const frontendTrack: Track = {
           description:
             "SSL/TLS, HSTS, X-Frame-Options, and secure cookie flags.",
           duration: "15 min",
+          videoId: "4bQeGUzHpOE",
+          videoTitle: "HTTP Secure Headers for Web App Security",
+          videoChannel: "ByteMonk",
           hasTerminal: false,
         },
         {
@@ -925,6 +976,9 @@ export const frontendTrack: Track = {
           description:
             "The most common web vulnerabilities relevant to frontend developers.",
           duration: "20 min",
+          videoId: "wUaeKEl1RCw",
+          videoTitle: "OWASP Top 10 Web Application Security Risks",
+          videoChannel: "Telusko",
           hasTerminal: false,
         },
       ],
@@ -1031,6 +1085,9 @@ export const frontendTrack: Track = {
           description:
             "Dynamic routes, route groups, middleware, layouts, and loading states.",
           duration: "25 min",
+          videoId: "mVOvx9eVHg0",
+          videoTitle: "Next.js 14 Tutorial — Parallel & Intercepting Routes",
+          videoChannel: "Codevolution",
           hasTerminal: false,
         },
         {
@@ -1039,6 +1096,9 @@ export const frontendTrack: Track = {
           description:
             "Build API endpoints and use server actions for form handling.",
           duration: "25 min",
+          videoId: "O94ESaJtHtM",
+          videoTitle: "Next.js Server Actions — 5 Awesome Things You Can Do",
+          videoChannel: "Beyond Fireship",
           hasTerminal: false,
         },
       ],
@@ -1083,6 +1143,9 @@ export const frontendTrack: Track = {
           description:
             "Set up Apollo Client, write queries, handle loading/error states, and caching.",
           duration: "30 min",
+          videoId: "YyUWW04HwKY",
+          videoTitle: "GraphQL With React Tutorial — Apollo Client",
+          videoChannel: "PedroTech",
           hasTerminal: false,
         },
       ],
@@ -1132,6 +1195,9 @@ export const frontendTrack: Track = {
           description:
             "Push notifications, IndexedDB, Geolocation, and other Web Platform APIs.",
           duration: "20 min",
+          videoId: "eiC58R16hb8",
+          videoTitle: "JavaScript Visualized — Event Loop, Web APIs",
+          videoChannel: "Lydia Hallie",
           hasTerminal: false,
         },
       ],
@@ -1159,6 +1225,9 @@ export const frontendTrack: Track = {
           description:
             "LCP, FID, CLS — measuring and improving real-world performance metrics.",
           duration: "20 min",
+          videoId: "pTswmgVWSH8",
+          videoTitle: "What are Core Web Vitals?",
+          videoChannel: "Sematext",
           hasTerminal: false,
         },
         {
@@ -1167,6 +1236,9 @@ export const frontendTrack: Track = {
           description:
             "Dynamic imports, React.lazy, route-based splitting, and bundle analysis.",
           duration: "20 min",
+          videoId: "JU6sl_yyZqs",
+          videoTitle: "Speed Up Your React Apps With Code Splitting",
+          videoChannel: "Web Dev Simplified",
           hasTerminal: false,
         },
         {
@@ -1175,6 +1247,9 @@ export const frontendTrack: Track = {
           description:
             "Responsive images, srcset, next/image, WebP/AVIF, and CDN delivery.",
           duration: "15 min",
+          videoId: "IU_qq_c_lKA",
+          videoTitle: "Using Images in Next.js (next/image examples)",
+          videoChannel: "leerob",
           hasTerminal: false,
         },
         {
@@ -1183,6 +1258,9 @@ export const frontendTrack: Track = {
           description:
             "Run Lighthouse audits, analyze performance waterfalls, and fix bottlenecks.",
           duration: "20 min",
+          videoId: "VyaHwvPWuZU",
+          videoTitle: "What Is Google Lighthouse and How to Use It?",
+          videoChannel: "Elegant Themes",
           hasTerminal: false,
         },
       ],
