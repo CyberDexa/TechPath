@@ -129,12 +129,29 @@
 | SEO: meta tags per track | ✅ | generateMetadata for track/module/lesson routes |
 | Performance optimization | ✅ | Server/client split, dynamic imports, tree-shaking, 148 deps removed |
 | Lighthouse audit | ✅ | Perf 90, A11y 93, Best Practices 96, SEO 100 |
-| Deploy to Vercel | ⬜ | Prepared: prisma generate in build, vercel-ready config |
-| Custom domain setup | ⬜ | Single domain for all |
+| Deploy to Vercel | ✅ | https://techpath-seven.vercel.app — project name "techpath" |
+| OAuth (GitHub + Google) on prod | ✅ | Env vars set, callback URLs configured |
+| Fix useProgress 401s | ✅ | Auth guard with useSession, unauthenticated users no longer error |
+| UI branding update | ✅ | "Get Started" button, sign-in page updated to TechPath |
+| Custom domain setup | ⬜ | Requires domain purchase |
 
 ---
 
-## Phase 9: Future Enhancements (Post-MVP)
+## Phase 9: Final Polish & Launch Readiness
+| Task | Status | Notes |
+|------|--------|-------|
+| Responsive design audit | ⬜ | Test all pages on mobile/tablet breakpoints |
+| 404 / error pages styling | ⬜ | Branded error pages with navigation back |
+| Lesson navigation (prev/next) | ⬜ | Navigate between lessons without going back to module |
+| Module completion summary | ⬜ | Show completion state on module page |
+| Keyboard shortcuts | ⬜ | Arrow keys for lesson nav, Enter to mark complete |
+| Social sharing / OG images | ⬜ | Dynamic OG images per track |
+| README.md update | ⬜ | Screenshots, setup guide, architecture docs |
+| Final Lighthouse re-audit | ⬜ | Verify all scores maintained after changes |
+
+---
+
+## Phase 10: Future Enhancements (Post-MVP)
 | Task | Status | Notes |
 |------|--------|-------|
 | Quiz/assessment system | ⬜ | |
@@ -210,11 +227,28 @@
 - [x] Build script: prisma generate + postinstall hook for Vercel deployment
 - [x] Build passing — zero TypeScript errors
 
-### Sprint 6 (Next)
-**Goal:** Vercel deployment + custom domain
-- [ ] Deploy to Vercel
-- [ ] Set environment variables on Vercel
-- [ ] Custom domain setup
+### Sprint 6 (Completed — Feb 2026)
+**Goal:** Vercel deployment + OAuth + UI fixes
+- [x] Deployed to Vercel as "techpath" → https://techpath-seven.vercel.app
+- [x] Set all env vars (DATABASE_URL, AUTH_SECRET, AUTH_URL)
+- [x] Fixed useProgress 401 errors for unauthenticated users (useSession guard)
+- [x] Configured GitHub + Google OAuth on production (fixed env var newline issue)
+- [x] Updated metadataBase to match Vercel URL
+- [x] Navbar: "Sign In" → "Get Started" for unauthenticated users
+- [x] Sign-in page: rebranded to "Welcome to TechPath", removed unconfigured email option
+- [x] GitHub integration: auto-deploys on push to main
+- [x] Build passing — zero TypeScript errors
+
+### Sprint 7 (Current)
+**Goal:** Final polish & launch readiness
+- [ ] Responsive design audit (mobile/tablet breakpoints)
+- [ ] Branded 404 / error pages with navigation
+- [ ] Lesson navigation (prev/next within a module)
+- [ ] Module completion summary on module page
+- [ ] Keyboard shortcuts for lesson navigation
+- [ ] Dynamic OG images per track
+- [ ] README.md with screenshots, setup guide, architecture
+- [ ] Final Lighthouse re-audit
 
 ---
 
