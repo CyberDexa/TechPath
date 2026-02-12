@@ -3,7 +3,7 @@
 import { signIn } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Github, Mail } from "lucide-react";
+import { Github } from "lucide-react";
 
 export default function SignInPage() {
   return (
@@ -13,9 +13,9 @@ export default function SignInPage() {
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10">
             <span className="text-2xl">🚀</span>
           </div>
-          <CardTitle className="text-2xl font-bold">Welcome Back</CardTitle>
+          <CardTitle className="text-2xl font-bold">Welcome to TechPath</CardTitle>
           <CardDescription className="text-base">
-            Sign in to continue your DevOps to MLOps journey
+            Sign in to start your learning journey
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -51,22 +51,6 @@ export default function SignInPage() {
               />
             </svg>
             Continue with Google
-          </Button>
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t" />
-            </div>
-            <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-card px-2 text-muted-foreground">Or</span>
-            </div>
-          </div>
-          <Button
-            variant="secondary"
-            className="w-full h-12 text-base"
-            onClick={() => signIn("email", { callbackUrl: "/dashboard" })}
-          >
-            <Mail className="mr-2 h-5 w-5" />
-            Continue with Email
           </Button>
           <p className="text-center text-sm text-muted-foreground pt-2">
             By signing in, you agree to our Terms of Service and Privacy Policy.

@@ -138,7 +138,7 @@ export function Navbar() {
             </DropdownMenu>
           ) : (
             <Link href="/auth/signin">
-              <Button size="sm">Sign In</Button>
+              <Button size="sm">Get Started</Button>
             </Link>
           )}
 
