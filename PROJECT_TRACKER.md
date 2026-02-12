@@ -104,11 +104,17 @@
 
 ---
 
-## Phase 7: Content Curation (Ongoing)
+## Phase 7: Content Curation & Progress Wiring
 | Task | Status | Notes |
 |------|--------|-------|
-| Curate videos for Frontend track | ⬜ | YouTube quality channels |
-| Curate videos for Backend track | ⬜ | |
+| Wire useProgress to lesson page | ✅ | Mark Complete, Video Watched, Terminal Done |
+| Wire useProgress to dashboard | ✅ | Real stats, smart Continue Learning |
+| Track completion % on cards | ✅ | Real progress bars & percentages |
+| Progress indicators on learn page | ✅ | Checkmarks, module progress bars |
+| Streak wired to navbar | ✅ | Live count, conditional orange styling |
+| Badge rules scaled to 26 tracks | ✅ | 12 rules: 8 lesson + 4 track milestones |
+| Curate videos for Frontend track | ✅ | 46/72 lessons (64%) — WDS, Fireship, Kevin Powell, Traversy |
+| Curate videos for Backend track | ✅ | 68/68 lessons (100%) — already complete |
 | Curate videos for Full Stack track | ⬜ | |
 | Create terminal exercises | ⬜ | For applicable tracks |
 | Curate remaining track videos | ⬜ | Phase 2-5 tracks |
@@ -153,12 +159,27 @@
 - [x] Navbar rebranded to "TechPath"
 - [x] Build passing cleanly (Next.js 16.1.6)
 
-### Sprint 2 (Next)
+### Sprint 2 (Completed — Feb 2026)
 **Goal:** Content curation + progress wiring
-- [ ] Curate YouTube videos for top 5 tracks
-- [ ] Wire useProgress hook to dashboard stats
-- [ ] Add real completion percentages to track cards
-- [ ] Terminal exercises for web dev tracks
+- [x] Wire useProgress to lesson page (Mark Complete, Video Watched, Terminal Done)
+- [x] Wire useProgress to dashboard (real stats, smart Continue Learning)
+- [x] Real completion percentages on dashboard track cards
+- [x] Progress indicators on learn page (checkmarks, module progress bars)
+- [x] Badge system scaled: 12 rules (8 lesson milestones + 4 track milestones)
+- [x] Live streak wired to navbar with conditional orange styling
+- [x] Frontend track: 24 new YouTube videos curated (46/72 = 64%)
+- [x] Backend track: confirmed 100% video coverage
+- [x] Build passing (Next.js 16.1.6 Turbopack)
+
+### Sprint 3 (Next)
+**Goal:** Remaining video curation + UX polish + remaining progress features
+- [ ] Curate videos for Full Stack track
+- [ ] Curate videos for DevOps track gaps (if any)
+- [ ] Fill remaining Frontend track video gaps (36% missing)
+- [ ] Add remaining frontend lessons: HTTPS/Security, React Patterns, TS with React, etc.
+- [ ] Profile page: show progress stats, badges earned, tracks started
+- [ ] Error handling & loading states across all pages
+- [ ] SEO: meta tags per track page
 
 ---
 
