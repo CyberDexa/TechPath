@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import { useSession } from "next-auth/react";
 import { useProgress } from "@/hooks/use-progress";
+import { useSetLearningContext } from "@/lib/learning-context";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -83,6 +84,26 @@ export function LessonClient({
   const { progress, loading, updateProgress, isLessonCompleted } =
     useProgress();
   const [saving, setSaving] = useState(false);
+
+  // Set learning context for the AI tutor
+  const learningContext = useMemo(
+    () => ({
+      trackId,
+      trackTitle: track.title,
+      trackCategory: track.category,
+      moduleId,
+      moduleTitle: mod.title,
+      moduleDescription: mod.description,
+      lessonTitles: mod.lessons.map((l) => l.title),
+      projectTitle: mod.project.title,
+      projectDescription: mod.project.description,
+      lessonId,
+      lessonTitle: lesson.title,
+      lessonDescription: lesson.description,
+    }),
+    [trackId, moduleId, lessonId, track, mod, lesson]
+  );
+  useSetLearningContext(learningContext);
 
   const completed = isLessonCompleted(lessonId);
   const lessonProgress = progress.find((p) => p.lessonId === lessonId);

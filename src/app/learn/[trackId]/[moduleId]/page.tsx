@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ModuleProgressBar, LessonCheck } from "@/components/module-progress";
+import { LearningContextSetter } from "@/components/learning-context-setter";
 import {
   ArrowLeft,
   ArrowRight,
@@ -48,6 +49,21 @@ export default async function ModulePage({ params }: ModulePageProps) {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
+      {/* Set learning context for the AI tutor */}
+      <LearningContextSetter
+        data={{
+          trackId,
+          trackTitle: track.title,
+          trackCategory: track.category,
+          moduleId,
+          moduleTitle: mod.title,
+          moduleDescription: mod.description,
+          lessonTitles: mod.lessons.map((l) => l.title),
+          projectTitle: mod.project.title,
+          projectDescription: mod.project.description,
+        }}
+      />
+
       {/* Back link */}
       <Link
         href="/learn"

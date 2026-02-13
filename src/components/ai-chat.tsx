@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useChat } from "@ai-sdk/react";
-import { usePathname } from "next/navigation";
+import { useLearningContext } from "@/lib/learning-context";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -16,25 +16,6 @@ import {
   Minimize2,
   Maximize2,
 } from "lucide-react";
-
-/**
- * Extracts learning context from the current URL path.
- * e.g. /learn/frontend/mod-html-basics/lesson-intro
- */
-function useLearningContext() {
-  const pathname = usePathname();
-
-  // Only extract context on /learn/ pages
-  if (!pathname?.startsWith("/learn/")) return null;
-
-  const segments = pathname.split("/").filter(Boolean);
-  // /learn/[trackId]/[moduleId]/[lessonId]
-  const trackId = segments[1] || null;
-  const moduleId = segments[2] || null;
-  const lessonId = segments[3] || null;
-
-  return { trackId, moduleId, lessonId };
-}
 
 // Simple markdown-ish rendering for chat messages
 function formatMessage(content: string) {
@@ -158,13 +139,22 @@ export function AIChatPanel() {
 
   const isLoading = status === "streaming" || status === "submitted";
 
-  // Build extra body for context-aware requests
+  // Build rich context body for the API
   const requestBody = context
     ? {
         context: {
           trackId: context.trackId,
+          trackTitle: context.trackTitle,
+          trackCategory: context.trackCategory,
           moduleId: context.moduleId,
+          moduleTitle: context.moduleTitle,
+          moduleDescription: context.moduleDescription,
+          lessonTitles: context.lessonTitles,
+          projectTitle: context.projectTitle,
+          projectDescription: context.projectDescription,
           lessonId: context.lessonId,
+          lessonTitle: context.lessonTitle,
+          lessonDescription: context.lessonDescription,
         },
       }
     : undefined;
@@ -216,6 +206,9 @@ export function AIChatPanel() {
   // Don't render until after hydration to avoid mismatch
   if (!mounted) return null;
 
+  // Only show on module/lesson pages (when learning context is set)
+  if (!context) return null;
+
   return (
     <>
       {/* Floating trigger button */}
@@ -249,12 +242,12 @@ export function AIChatPanel() {
                 <div>
                   <h3 className="text-sm font-semibold">TechPath AI</h3>
                   <p className="text-[10px] text-muted-foreground">
-                    {context ? "Context-aware • GPT-4o-mini" : "GPT-4o-mini"}
+                    Learning assistant
                   </p>
                 </div>
                 {context?.trackId && (
                   <Badge variant="secondary" className="text-[10px] ml-1">
-                    {context.trackId}
+                    {context.trackTitle ?? context.trackId}
                   </Badge>
                 )}
               </div>

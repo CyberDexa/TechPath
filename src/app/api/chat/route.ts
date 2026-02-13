@@ -28,18 +28,49 @@ If the user shares their current track/lesson context, tailor your response to t
 export async function POST(req: Request) {
   const { messages, context } = await req.json();
 
-  // Build a context-aware system prompt when lesson info is available
+  // Build a context-aware system prompt when curriculum info is available
   let systemPrompt = SYSTEM_PROMPT;
   if (context) {
-    const contextLines: string[] = [];
-    if (context.trackTitle) contextLines.push(`Current track: ${context.trackTitle}`);
-    if (context.moduleTitle) contextLines.push(`Current module: ${context.moduleTitle}`);
-    if (context.lessonTitle) contextLines.push(`Current lesson: ${context.lessonTitle}`);
-    if (context.lessonDescription) contextLines.push(`Lesson description: ${context.lessonDescription}`);
-    if (context.trackCategory) contextLines.push(`Category: ${context.trackCategory}`);
+    const contextBlocks: string[] = [];
 
-    if (contextLines.length > 0) {
-      systemPrompt += `\n\nThe learner is currently studying:\n${contextLines.join("\n")}`;
+    if (context.trackTitle) {
+      contextBlocks.push(
+        `**Track:** ${context.trackTitle}${context.trackCategory ? ` (${context.trackCategory})` : ""}`
+      );
+    }
+
+    if (context.moduleTitle) {
+      contextBlocks.push(`**Module:** ${context.moduleTitle}`);
+    }
+
+    if (context.moduleDescription) {
+      contextBlocks.push(`**Module overview:** ${context.moduleDescription}`);
+    }
+
+    // Include all lesson titles so the AI can summarize the module
+    if (context.lessonTitles && context.lessonTitles.length > 0) {
+      const lessonList = context.lessonTitles
+        .map((t: string, i: number) => `  ${i + 1}. ${t}`)
+        .join("\n");
+      contextBlocks.push(`**Lessons in this module:**\n${lessonList}`);
+    }
+
+    if (context.projectTitle) {
+      contextBlocks.push(
+        `**Module project:** ${context.projectTitle}${context.projectDescription ? ` — ${context.projectDescription}` : ""}`
+      );
+    }
+
+    if (context.lessonTitle) {
+      contextBlocks.push(`**Current lesson:** ${context.lessonTitle}`);
+    }
+
+    if (context.lessonDescription) {
+      contextBlocks.push(`**Lesson description:** ${context.lessonDescription}`);
+    }
+
+    if (contextBlocks.length > 0) {
+      systemPrompt += `\n\n---\nThe learner is currently studying:\n${contextBlocks.join("\n")}`;
     }
   }
 
