@@ -223,9 +223,9 @@ export const aiEngineerTrack: Track = {
           title: "Prompt Engineering Fundamentals",
           description: "Zero-shot, few-shot, and chain-of-thought prompting.",
           duration: "12 min",
-          videoId: "_ZvnD96BVzI",
-          videoTitle: "Prompt Engineering Tutorial",
-          videoChannel: "freeCodeCamp",
+          videoId: "uDIW34h8cmM",
+          videoTitle: "Prompt Engineering Guide - From Beginner to Advanced",
+          videoChannel: "Matthew Berman",
           hasTerminal: true,
           terminalExercise: {
             instructions: "Write a few-shot prompt that classifies customer reviews as positive, negative, or neutral.",

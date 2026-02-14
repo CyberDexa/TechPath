@@ -46,9 +46,9 @@ export const mlopsTrack: Track = {
           description:
             "The essential math for ML — mean, variance, probability, and linear algebra basics.",
           duration: "35 min",
-          videoId: "0oCB5_wCMdA",
-          videoTitle: "Math for Machine Learning",
-          videoChannel: "freeCodeCamp",
+          videoId: "KgolhE7p-KY",
+          videoTitle: "How To Learn Math for Machine Learning FAST (Even With Zero Math Background)",
+          videoChannel: "Marina Wyss - AI & Machine Learning",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -130,9 +130,9 @@ export const mlopsTrack: Track = {
           description:
             "Understand when to use a data lake, data warehouse, or data lakehouse.",
           duration: "20 min",
-          videoId: "4DhTTA484Kk",
-          videoTitle: "Data Lake vs Data Warehouse",
-          videoChannel: "Fireship",
+          videoId: "-bSkREem8dM",
+          videoTitle: "Database vs Data Warehouse vs Data Lake",
+          videoChannel: "What is the Difference?",
           hasTerminal: false,
         },
         {
@@ -140,9 +140,9 @@ export const mlopsTrack: Track = {
           title: "ETL Processes",
           description: "Build Extract-Transform-Load pipelines with Python.",
           duration: "35 min",
-          videoId: "eJW87LaVZhA",
-          videoTitle: "ETL Pipeline Tutorial in Python",
-          videoChannel: "freeCodeCamp",
+          videoId: "dfouoh9QdUw",
+          videoTitle: "How to build an ETL pipeline with Python",
+          videoChannel: "Data pipeline",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -167,9 +167,9 @@ export const mlopsTrack: Track = {
           description:
             "Ensure your data is clean, consistent, and reliable for ML training.",
           duration: "25 min",
-          videoId: "5FnC_97S1_U",
-          videoTitle: "Data Quality in ML Pipelines",
-          videoChannel: "DataTalksClub",
+          videoId: "5HcDJ8e9NwY",
+          videoTitle: "Data Quality Explained",
+          videoChannel: "IBM Technology",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -208,9 +208,9 @@ export const mlopsTrack: Track = {
           description:
             "Cross-validation, train/test splits, preventing overfitting, and training pipelines.",
           duration: "30 min",
-          videoId: "iGklzHNBJGk",
-          videoTitle: "ML Model Training Best Practices",
-          videoChannel: "DataTalksClub",
+          videoId: "rysdr4khB5k",
+          videoTitle: "How to train AI ML models? Full pipeline in 15 mins.",
+          videoChannel: "ChemCoder",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -256,9 +256,9 @@ export const mlopsTrack: Track = {
           description:
             "Version your models and data with DVC and Git for reproducibility.",
           duration: "25 min",
-          videoId: "UdOLBSAhFBo",
-          videoTitle: "DVC Tutorial - Data Version Control",
-          videoChannel: "DataTalksClub",
+          videoId: "kLKBcPonMYw",
+          videoTitle: "Versioning Data with DVC (Hands-On Tutorial!)",
+          videoChannel: "DVCorg",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -272,9 +272,9 @@ export const mlopsTrack: Track = {
           description:
             "Log parameters, metrics, and artifacts with MLflow for experiment management.",
           duration: "35 min",
-          videoId: "a4S5SiGLxGI",
-          videoTitle: "MLflow Tutorial",
-          videoChannel: "DataTalksClub",
+          videoId: "RnYa3QsXRAc",
+          videoTitle: "MLFlow Tutorial Part 1: Experiment Tracking",
+          videoChannel: "Anton T. Ruberts",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -323,9 +323,9 @@ export const mlopsTrack: Track = {
           description:
             "Package ML models in Docker containers for consistent deployment.",
           duration: "30 min",
-          videoId: "D6W4SjDjyAM",
-          videoTitle: "Dockerize ML Models",
-          videoChannel: "DataTalksClub",
+          videoId: "-l7YocEQtA0",
+          videoTitle: "Docker Simply Explained with a Machine Learning Project for Beginners",
+          videoChannel: "Python Simplified",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -355,9 +355,9 @@ export const mlopsTrack: Track = {
           description:
             "Orchestrate ML workflows at scale with Kubeflow on Kubernetes.",
           duration: "25 min",
-          videoId: "dOkOoEqrFiQ",
-          videoTitle: "Kubeflow Tutorial",
-          videoChannel: "DataTalksClub",
+          videoId: "Dbwj-NHnHfw",
+          videoTitle: "What is Kubeflow?",
+          videoChannel: "IBM Technology",
           hasTerminal: false,
         },
         {
@@ -366,9 +366,9 @@ export const mlopsTrack: Track = {
           description:
             "Centralized feature management for ML — what, why, and popular tools.",
           duration: "20 min",
-          videoId: "DESBDfhBRsE",
-          videoTitle: "Feature Store Explained",
-          videoChannel: "DataTalksClub",
+          videoId: "DESBDukN9gw",
+          videoTitle: "What is a Feature Store for Machine Learning?",
+          videoChannel: "Hopsworks",
           hasTerminal: false,
         },
       ],
@@ -402,9 +402,9 @@ export const mlopsTrack: Track = {
           description:
             "Track model performance, detect degradation, and set up alerts.",
           duration: "30 min",
-          videoId: "8LywH1_a6XY",
-          videoTitle: "ML Model Monitoring",
-          videoChannel: "DataTalksClub",
+          videoId: "vyam49Rhk2I",
+          videoTitle: "What Is ML Model Monitoring In AI Production Environments? - AI and Machine Learning Explained",
+          videoChannel: "AI and Machine Learning Explained",
           hasTerminal: false,
         },
         {
@@ -413,9 +413,9 @@ export const mlopsTrack: Track = {
           description:
             "Detect when your input data distribution changes and your model needs retraining.",
           duration: "25 min",
-          videoId: "0dycEhJjNnI",
-          videoTitle: "Data Drift Detection in ML",
-          videoChannel: "DataTalksClub",
+          videoId: "uOG685WFO00",
+          videoTitle: "ML Drift: Identifying Issues Before You Have a Problem",
+          videoChannel: "Fiddler AI",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -429,9 +429,9 @@ export const mlopsTrack: Track = {
           description:
             "When and how to retrain models — scheduled, triggered, and online learning.",
           duration: "25 min",
-          videoId: "nT-sTlFqFDQ",
-          videoTitle: "Model Retraining Strategies",
-          videoChannel: "DataTalksClub",
+          videoId: "VMXGUje_G-M",
+          videoTitle: "Top Strategies for Automating Model Retraining Pipelines",
+          videoChannel: "NextGen AI Explorer",
           hasTerminal: false,
         },
         {
@@ -440,9 +440,9 @@ export const mlopsTrack: Track = {
           description:
             "Compare model versions in production with A/B testing and shadow deployments.",
           duration: "20 min",
-          videoId: "DUNzT5YGTI8",
-          videoTitle: "A/B Testing ML Models",
-          videoChannel: "DataTalksClub",
+          videoId: "zFMgpxG-chM",
+          videoTitle: "What is A/B Testing?",
+          videoChannel: "Data Science in Minutes",
           hasTerminal: false,
         },
         {

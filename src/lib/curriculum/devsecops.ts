@@ -35,9 +35,9 @@ export const devsecopsTrack: Track = {
           description:
             "Understand the three pillars of information security — Confidentiality, Integrity, and Availability — and how they guide security decisions.",
           duration: "25 min",
-          videoId: "6vMdBRPHwF0",
-          videoTitle: "CIA Triad Explained",
-          videoChannel: "NetworkChuck",
+          videoId: "kPPFNrlN3zo",
+          videoTitle: "What is the CIA Triad",
+          videoChannel: "IBM Technology",
           hasTerminal: false,
         },
         {
@@ -46,9 +46,9 @@ export const devsecopsTrack: Track = {
           description:
             "Discover why finding security issues early in development saves time, money, and headaches compared to fixing them in production.",
           duration: "20 min",
-          videoId: "mkLVGHzktSA",
-          videoTitle: "Shift Left Security in DevSecOps",
-          videoChannel: "freeCodeCamp",
+          videoId: "N7mFzwXRZmQ",
+          videoTitle: "Keith Thomas - How To Apply DevSecOps Shift-Left Security with OWASP ZAP",
+          videoChannel: "LASCON",
           hasTerminal: false,
         },
       ],
@@ -76,9 +76,9 @@ export const devsecopsTrack: Track = {
           description:
             "Learn to identify, assess, and prioritize risks using common frameworks and methodologies.",
           duration: "25 min",
-          videoId: "2jnG3UKx-iE",
-          videoTitle: "Risk Management in Cybersecurity",
-          videoChannel: "NetworkChuck",
+          videoId: "C_tq0ox_UKc",
+          videoTitle: "A beginners guide to cyber security risk management.",
+          videoChannel: "cybershare",
           hasTerminal: false,
         },
         {
@@ -98,9 +98,9 @@ export const devsecopsTrack: Track = {
           description:
             "Overview of key security frameworks — NIST Cybersecurity Framework, OWASP Top 10, and CIS Controls.",
           duration: "30 min",
-          videoId: "UMHqFmEFb4g",
-          videoTitle: "NIST Cybersecurity Framework Explained",
-          videoChannel: "freeCodeCamp",
+          videoId: "_KXqDNVmpu8",
+          videoTitle: "CertMike Explains NIST Cybersecurity Framework",
+          videoChannel: "Mike Chapple",
           hasTerminal: false,
         },
         {
@@ -109,9 +109,9 @@ export const devsecopsTrack: Track = {
           description:
             "Understand layered security architectures and the Zero Trust model — never trust, always verify.",
           duration: "25 min",
-          videoId: "pyyd_OkSkAs",
-          videoTitle: "Zero Trust Security Model",
-          videoChannel: "Fireship",
+          videoId: "yn6CPQ9RioA",
+          videoTitle: "Zero Trust Explained in 4 mins",
+          videoChannel: "IBM Technology",
           hasTerminal: false,
         },
       ],
@@ -193,9 +193,9 @@ export const devsecopsTrack: Track = {
           description:
             "Design secure network architectures using segmentation, DMZs, and micro-segmentation strategies.",
           duration: "20 min",
-          videoId: "dV2Kn-xLgE4",
-          videoTitle: "Network Segmentation Explained",
-          videoChannel: "freeCodeCamp",
+          videoId: "48QZfBeU4ps",
+          videoTitle: "DMZ Explained",
+          videoChannel: "Demilitarised Zone",
           hasTerminal: false,
         },
       ],
@@ -223,9 +223,9 @@ export const devsecopsTrack: Track = {
           description:
             "Use Python to automate security tasks — scanning, log parsing, and vulnerability detection.",
           duration: "35 min",
-          videoId: "sNRzXSaTBsE",
-          videoTitle: "Python for Cybersecurity",
-          videoChannel: "freeCodeCamp",
+          videoId: "cjdIIwUZsAg",
+          videoTitle: "Python Automation For Cyber Security (Step-by-Step Guide for Beginners)",
+          videoChannel: "Vinsloev Academy",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -296,9 +296,9 @@ export const devsecopsTrack: Track = {
           description:
             "Use SAST tools to find vulnerabilities in source code before deployment.",
           duration: "30 min",
-          videoId: "Kl4XtNGaYnA",
-          videoTitle: "SAST vs DAST Explained",
-          videoChannel: "freeCodeCamp",
+          videoId: "mklRbQTpGos",
+          videoTitle: "Static Application Security Testing (SAST) Explained: How It Works and Why It Matters",
+          videoChannel: "Harness",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -312,9 +312,9 @@ export const devsecopsTrack: Track = {
           description:
             "Test running applications for vulnerabilities using DAST tools like OWASP ZAP.",
           duration: "30 min",
-          videoId: "3FNRUSd3tsI",
-          videoTitle: "OWASP ZAP Tutorial",
-          videoChannel: "freeCodeCamp",
+          videoId: "6okVFkDKORg",
+          videoTitle: "What Is Dynamic Application Security Testing (DAST)?",
+          videoChannel: "AppSec 101",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -328,9 +328,9 @@ export const devsecopsTrack: Track = {
           description:
             "Scan third-party dependencies for known vulnerabilities using Software Composition Analysis.",
           duration: "25 min",
-          videoId: "z_6JdRK6MyY",
-          videoTitle: "Software Composition Analysis",
-          videoChannel: "freeCodeCamp",
+          videoId: "5n-EhVNMO4I",
+          videoTitle: "What is SCA: Software Composition Analysis explained!",
+          videoChannel: "MrKnowledgeShare",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -344,9 +344,9 @@ export const devsecopsTrack: Track = {
           description:
             "Integrate security into every phase of the SDLC — from requirements to deployment and maintenance.",
           duration: "25 min",
-          videoId: "snrVaqFbMF4",
-          videoTitle: "Secure SDLC Explained",
-          videoChannel: "freeCodeCamp",
+          videoId: "MHhHrztQ-Cw",
+          videoTitle: "What makes a secure SDLC?",
+          videoChannel: "AppSec 101",
           hasTerminal: false,
         },
       ],
@@ -396,9 +396,9 @@ export const devsecopsTrack: Track = {
           description:
             "Store and manage secrets securely using HashiCorp Vault — API keys, passwords, certificates.",
           duration: "30 min",
-          videoId: "o-YBi0KFQpo",
-          videoTitle: "HashiCorp Vault Tutorial",
-          videoChannel: "freeCodeCamp",
+          videoId: "klyAhaklGNU",
+          videoTitle: "HashiCorp Vault Tutorial for Beginners - What, Why and How",
+          videoChannel: "TechWorld with Nana",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -412,9 +412,9 @@ export const devsecopsTrack: Track = {
           description:
             "Implement Multi-Factor Authentication and SSO solutions for stronger identity verification.",
           duration: "20 min",
-          videoId: "SLs0UtCObs4",
-          videoTitle: "MFA and SSO Explained",
-          videoChannel: "NetworkChuck",
+          videoId: "GsjeyXFHXaU",
+          videoTitle: "Whiteboard Wednesday - 02 - How It Works: Multi-Factor Authentication for Single Sign-On",
+          videoChannel: "MRI Software",
           hasTerminal: false,
         },
       ],
@@ -480,9 +480,9 @@ export const devsecopsTrack: Track = {
           description:
             "Build automated playbooks to respond to security events — from alerting to containment.",
           duration: "25 min",
-          videoId: "xG3jnbFayxo",
-          videoTitle: "Automated Incident Response",
-          videoChannel: "freeCodeCamp",
+          videoId: "k5f6sJkcVF8",
+          videoTitle: "AWS Security Incident Response Investigative Agent Demo",
+          videoChannel: "Amazon Web Services",
           hasTerminal: false,
         },
       ],
@@ -510,9 +510,9 @@ export const devsecopsTrack: Track = {
           description:
             "Scan container images for vulnerabilities, misconfigurations, and secrets using Trivy.",
           duration: "25 min",
-          videoId: "Kl4XtNGaYnA",
-          videoTitle: "Trivy Container Scanning",
-          videoChannel: "freeCodeCamp",
+          videoId: "dwce6Yl9N9Q",
+          videoTitle: "Trivy Vulnerability Scanner Tool For DevSecOps 🔥🔥",
+          videoChannel: "DevOps Shack",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -526,9 +526,9 @@ export const devsecopsTrack: Track = {
           description:
             "Use Semgrep for lightweight static analysis — custom rules, pattern matching, and CI integration.",
           duration: "25 min",
-          videoId: "3FNRUSd3tsI",
-          videoTitle: "Semgrep Code Analysis",
-          videoChannel: "freeCodeCamp",
+          videoId: "MMR78pgYx_k",
+          videoTitle: "Semgrep Platform Overview",
+          videoChannel: "semgrep",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -558,9 +558,9 @@ export const devsecopsTrack: Track = {
           description:
             "Use Snyk to find and fix vulnerabilities in code, dependencies, containers, and IaC from the developer workflow.",
           duration: "25 min",
-          videoId: "z_6JdRK6MyY",
-          videoTitle: "Snyk Developer Security",
-          videoChannel: "freeCodeCamp",
+          videoId: "9RHM4ybvyT8",
+          videoTitle: "Snyk Demo in 20 Minutes",
+          videoChannel: "2022",
           hasTerminal: false,
         },
       ],
@@ -599,9 +599,9 @@ export const devsecopsTrack: Track = {
           description:
             "Implement AWS security — IAM policies, Security Groups, KMS encryption, and CloudTrail auditing.",
           duration: "30 min",
-          videoId: "ulprqHHWlng",
-          videoTitle: "AWS Security Best Practices",
-          videoChannel: "freeCodeCamp",
+          videoId: "mPU43QvPAHE",
+          videoTitle: "Essential AWS Security Best Practices: Building Workloads the Well-Architected Way",
+          videoChannel: "AWS Events",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -626,9 +626,9 @@ export const devsecopsTrack: Track = {
           description:
             "Ensure cloud environments meet compliance standards — SOC 2, HIPAA, GDPR, and PCI DSS.",
           duration: "25 min",
-          videoId: "UMHqFmEFb4g",
-          videoTitle: "Cloud Compliance Frameworks",
-          videoChannel: "freeCodeCamp",
+          videoId: "uPsUjKLHLAg",
+          videoTitle: "Data Governance Explained in 5 Minutes",
+          videoChannel: "IBM Technology",
           hasTerminal: false,
         },
       ],
@@ -683,9 +683,9 @@ export const devsecopsTrack: Track = {
           description:
             "Design secure system architectures — microservices security, API gateways, service mesh, and mTLS.",
           duration: "25 min",
-          videoId: "pyyd_OkSkAs",
-          videoTitle: "Secure Architecture Design",
-          videoChannel: "freeCodeCamp",
+          videoId: "3l8GwLv2f3E",
+          videoTitle: "10 Principles for Secure by Design: Baking Security into Your Systems",
+          videoChannel: "IBM Technology",
           hasTerminal: false,
         },
         {
@@ -694,9 +694,9 @@ export const devsecopsTrack: Track = {
           description:
             "Protect sensitive data at rest and in transit — encryption strategies, tokenization, and data masking.",
           duration: "25 min",
-          videoId: "UMHqFmEFb4g",
-          videoTitle: "Data Protection Strategies",
-          videoChannel: "freeCodeCamp",
+          videoId: "YJInlE99vSs",
+          videoTitle: "Data protection explained in three minutes",
+          videoChannel: "Information Commissioner's Office (ICO)",
           hasTerminal: false,
         },
       ],
@@ -735,9 +735,9 @@ export const devsecopsTrack: Track = {
           description:
             "Identify indicators of compromise (IOCs), analyze security events, and triage incidents by severity.",
           duration: "25 min",
-          videoId: "xG3jnbFayxo",
-          videoTitle: "Incident Detection Techniques",
-          videoChannel: "freeCodeCamp",
+          videoId: "MsGl6lX-YaI",
+          videoTitle: "Cybersecurity IDR: Incident Detection & Response",
+          videoChannel: "Google Cybersecurity Certificate",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -751,9 +751,9 @@ export const devsecopsTrack: Track = {
           description:
             "Strategies for containing active threats — isolation, blocking, and removing the root cause.",
           duration: "25 min",
-          videoId: "2jnG3UKx-iE",
-          videoTitle: "Incident Containment Strategies",
-          videoChannel: "freeCodeCamp",
+          videoId: "GzqpoarzQiA",
+          videoTitle: "Effective SOC Incident Response: Containment, Eradication & Recovery",
+          videoChannel: "INFOSEC TRAIN",
           hasTerminal: false,
         },
         {
@@ -819,9 +819,9 @@ export const devsecopsTrack: Track = {
           description:
             "Establish security governance frameworks, policies, and procedures for enterprise environments.",
           duration: "25 min",
-          videoId: "UMHqFmEFb4g",
-          videoTitle: "Security Governance Frameworks",
-          videoChannel: "freeCodeCamp",
+          videoId: "qdyEdqApjK8",
+          videoTitle: "Security Governance: Components, Importance and Implementation",
+          videoChannel: "espincgroup",
           hasTerminal: false,
         },
       ],
@@ -849,9 +849,9 @@ export const devsecopsTrack: Track = {
           description:
             "Generate and analyze SBOMs to track all components and dependencies in your software, enabling supply chain transparency.",
           duration: "25 min",
-          videoId: "z_6JdRK6MyY",
-          videoTitle: "SBOMs Explained",
-          videoChannel: "freeCodeCamp",
+          videoId: "zinD0CQlPBo",
+          videoTitle: "What is an SBOM?",
+          videoChannel: "Software Bill of Materials Explained",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -865,9 +865,9 @@ export const devsecopsTrack: Track = {
           description:
             "Sign build artifacts and container images with Cosign/Sigstore to ensure authenticity and integrity.",
           duration: "25 min",
-          videoId: "Kl4XtNGaYnA",
-          videoTitle: "Container Image Signing",
-          videoChannel: "freeCodeCamp",
+          videoId: "HLb1Q086u6M",
+          videoTitle: "Signing and Verifying Container Images With Sigstore Cosign and Kyverno",
+          videoChannel: "DevOps & AI Toolkit",
           hasTerminal: false,
         },
         {
@@ -933,9 +933,9 @@ export const devsecopsTrack: Track = {
           description:
             "Measure your security posture — mean time to remediate, vulnerability density, security debt, and more.",
           duration: "20 min",
-          videoId: "mkLVGHzktSA",
-          videoTitle: "Security Metrics That Matter",
-          videoChannel: "freeCodeCamp",
+          videoId: "4ERt2kSHlWc",
+          videoTitle: "SOC Metrics: The Top 5 KPIs for Measuring SOC Performance",
+          videoChannel: "Threat Exposure Management Platform",
           hasTerminal: false,
         },
         {

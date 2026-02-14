@@ -164,9 +164,9 @@ export const postgresqlTrack: Track = {
           title: "Index Types",
           description: "B-tree, GiST, GIN, BRIN, and hash indexes.",
           duration: "15 min",
-          videoId: "_HG2eB27j00",
-          videoTitle: "PostgreSQL Indexes — B-Tree, GIN, BRIN Explained",
-          videoChannel: "JaneExplainsIT",
+          videoId: "-qNSXK7s7_w",
+          videoTitle: "Database Indexing Explained (with PostgreSQL)",
+          videoChannel: "Hussein Nasser",
           hasTerminal: true,
           terminalExercise: {
             instructions: "Create B-tree, GIN (for JSONB), and partial indexes, then compare query plans.",

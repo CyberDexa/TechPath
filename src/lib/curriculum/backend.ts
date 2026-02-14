@@ -341,9 +341,9 @@ export const backendTrack: Track = {
           description:
             "Compare NoSQL database types — document stores (MongoDB), key-value (Redis), column-family (Cassandra), and graph databases (Neo4j).",
           duration: "20 min",
-          videoId: "v5e_PasMdXc",
-          videoTitle: "7 Database Paradigms",
-          videoChannel: "Fireship",
+          videoId: "mMdZEAKtntA",
+          videoTitle: "NoSQL Database Types Explained: Document, Key-Value, Column-Family & Graph Databases",
+          videoChannel: "CodeLucky",
           hasTerminal: false,
         },
       ],
@@ -377,9 +377,9 @@ export const backendTrack: Track = {
           description:
             "Use ORMs like Prisma, SQLAlchemy, and Sequelize to interact with databases using code instead of raw SQL.",
           duration: "30 min",
-          videoId: "dHQGnJahljc",
-          videoTitle: "Prisma ORM is Better Than You Think",
-          videoChannel: "Fireship",
+          videoId: "EwpT466EyP4",
+          videoTitle: "What is an ORM and what does it do?",
+          videoChannel: "Code With Bubb",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -436,9 +436,9 @@ export const backendTrack: Track = {
           description:
             "Manage schema changes safely with migration tools — versioned schema changes, rollbacks, and team collaboration.",
           duration: "25 min",
-          videoId: "dHQGnJahljc",
-          videoTitle: "Database Migrations with Prisma",
-          videoChannel: "Fireship",
+          videoId: "mMsZPZKNc4g",
+          videoTitle: "Database Migrations Explained",
+          videoChannel: "Software Developer Diaries",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -488,9 +488,9 @@ export const backendTrack: Track = {
           description:
             "Design clean APIs — URL naming conventions, versioning, pagination, filtering, and error handling.",
           duration: "30 min",
-          videoId: "fgTGADljAMg",
-          videoTitle: "REST API Design Best Practices",
-          videoChannel: "Traversy Media",
+          videoId: "7nm1pYuKAhY",
+          videoTitle: "Deep Dive into REST API Design and Implementation Best Practices",
+          videoChannel: "Software Developer Diaries",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -716,9 +716,9 @@ export const backendTrack: Track = {
           description:
             "Protect your API from abuse — implement rate limiting with token bucket, sliding window, and middleware approaches.",
           duration: "20 min",
-          videoId: "ZoeC3sAbjrs",
-          videoTitle: "Rate Limiting Explained",
-          videoChannel: "freeCodeCamp",
+          videoId: "_qNHROq0pGk",
+          videoTitle: "🔥 How Rate Limiting and Throttling Saves Your API Server From CRASHING!",
+          videoChannel: "ByteMonk",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -944,9 +944,9 @@ export const backendTrack: Track = {
           description:
             "Build cloud-native applications following the twelve-factor methodology — config, dependencies, processes, and more.",
           duration: "25 min",
-          videoId: "REbM7RjL0Jc",
-          videoTitle: "12 Factor App Explained",
-          videoChannel: "TechWorld with Nana",
+          videoId: "1OhmRmMsGdQ",
+          videoTitle: "What is 12-Factor App?",
+          videoChannel: "Twelve Factor App Methodology Explained",
           hasTerminal: false,
         },
         {
@@ -1075,8 +1075,8 @@ export const backendTrack: Track = {
           description:
             "Write optimized Dockerfiles — multi-stage builds, layer caching, non-root users, and minimal images.",
           duration: "35 min",
-          videoId: "WmcdMiyera8",
-          videoTitle: "Dockerfile Tutorial - Complete Guide",
+          videoId: "8vXoMqWgbQQ",
+          videoTitle: "Top 8 Docker Best Practices for using Docker in Production",
           videoChannel: "TechWorld with Nana",
           hasTerminal: true,
           terminalExercise: {
@@ -1317,9 +1317,9 @@ export const backendTrack: Track = {
           description:
             "Understand the CAP theorem — Consistency, Availability, Partition tolerance, and what it means for your architecture.",
           duration: "20 min",
-          videoId: "BHqjEjzAicY",
+          videoId: "BHqjEjzAicA",
           videoTitle: "CAP Theorem Simplified",
-          videoChannel: "freeCodeCamp",
+          videoChannel: "ByteByteGo",
           hasTerminal: false,
         },
         {

@@ -113,9 +113,9 @@ export const devopsTrack: Track = {
           description:
             "Learn to edit files in the terminal using nano and the basics of vim.",
           duration: "20 min",
-          videoId: "RFlHzIW2EB4",
-          videoTitle: "Vim Tutorial for Beginners",
-          videoChannel: "freeCodeCamp",
+          videoId: "g2PU--TctAM",
+          videoTitle: "Nano Text Editor on Linux Basics - How to Use Nano Tutorial (Beginners Guide)",
+          videoChannel: "SavvyNik",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -474,9 +474,9 @@ export const devopsTrack: Track = {
           description:
             "Write Dockerfiles to build custom images for your applications.",
           duration: "30 min",
-          videoId: "WmcdMiyera8",
-          videoTitle: "Dockerfile Tutorial",
-          videoChannel: "TechWorld with Nana",
+          videoId: "SnSH8Ht3MIc",
+          videoTitle: "Build YOUR OWN Dockerfile, Image, and Container - Docker Tutorial",
+          videoChannel: "Techno Tim",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -574,9 +574,9 @@ export const devopsTrack: Track = {
           description:
             "Learn the core AWS services — launch instances, store files, and manage access.",
           duration: "45 min",
-          videoId: "ulprqHHWlng",
-          videoTitle: "AWS Tutorial for Beginners",
-          videoChannel: "TechWorld with Nana",
+          videoId: "Nzv-tzU-UAw",
+          videoTitle: "AWS Tutorial for Beginners – Step-by-Step Guide to Cloud Computing",
+          videoChannel: "Kevin Stratvert",
           hasTerminal: false,
         },
         {
@@ -607,9 +607,9 @@ export const devopsTrack: Track = {
           description:
             "Avoid surprise cloud bills — budgets, alerts, and cost optimization strategies.",
           duration: "20 min",
-          videoId: "Ul2K8DzSNJY",
-          videoTitle: "AWS Cost Optimization",
-          videoChannel: "TechWorld with Nana",
+          videoId: "KuCZ1dAkuso",
+          videoTitle: "My Top 3 Things for AWS Cost Management",
+          videoChannel: "Jon Myer Podcast Powered by Myer Media",
           hasTerminal: false,
         },
       ],
@@ -754,9 +754,9 @@ export const devopsTrack: Track = {
           description:
             "Understand Terraform state, remote backends, and state locking.",
           duration: "25 min",
-          videoId: "PBv6HWNsOYA",
-          videoTitle: "Terraform State Explained",
-          videoChannel: "TechWorld with Nana",
+          videoId: "yhLrH0Q-kq4",
+          videoTitle: "Learn Terraform State in 10 Minutes",
+          videoChannel: "Chris Wahl",
           hasTerminal: false,
         },
         {
@@ -816,9 +816,9 @@ export const devopsTrack: Track = {
           description:
             "The importance of observability — what to monitor, the three pillars, and common patterns.",
           duration: "20 min",
-          videoId: "xG3jnbFayxo",
-          videoTitle: "Monitoring vs Observability",
-          videoChannel: "TechWorld with Nana",
+          videoId: "CAQ_a2-9UOI",
+          videoTitle: "Observability vs. APM vs. Monitoring",
+          videoChannel: "IBM Technology",
           hasTerminal: false,
         },
         {
@@ -870,9 +870,9 @@ export const devopsTrack: Track = {
           description:
             "Set up alerts for when things go wrong and learn incident response procedures.",
           duration: "20 min",
-          videoId: "xG3jnbFayxo",
-          videoTitle: "Alerting Best Practices",
-          videoChannel: "TechWorld with Nana",
+          videoId: "-1wZrkRzy5s",
+          videoTitle: "Alerting & Incident Response: Proactive Monitoring & Management for Beginners",
+          videoChannel: "CodeLucky",
           hasTerminal: false,
         },
       ],

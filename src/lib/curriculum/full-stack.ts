@@ -524,9 +524,9 @@ export const fullStackTrack: Track = {
           description:
             "Implement Create, Read, Update, and Delete operations for a resource with proper HTTP methods and status codes.",
           duration: "40 min",
-          videoId: "l8WPEL6YLIo",
-          videoTitle: "Build A REST API With Node.js & Express",
-          videoChannel: "Traversy Media",
+          videoId: "l8WPWK9mS5M",
+          videoTitle: "Build a REST API with Node JS and Express",
+          videoChannel: "CRUD API Tutorial",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -645,9 +645,9 @@ export const fullStackTrack: Track = {
           description:
             "Implement OAuth 2.0 social login with providers like Google and GitHub using Passport.js or NextAuth.",
           duration: "35 min",
-          videoId: "SoNtpc2Y3Gk",
-          videoTitle: "OAuth 2.0 Explained Simply",
-          videoChannel: "Fireship",
+          videoId: "ZV5yTm4pT8g",
+          videoTitle: "OAuth 2 Explained In Simple Terms",
+          videoChannel: "ByteByteGo",
           hasTerminal: false,
         },
       ],
@@ -935,9 +935,9 @@ export const fullStackTrack: Track = {
           description:
             "Launch and manage EC2 instances — choosing instance types, security groups, key pairs, SSH access, and deploying your Node.js app.",
           duration: "40 min",
-          videoId: "ulprqHHWlng",
-          videoTitle: "AWS EC2 Tutorial for Beginners",
-          videoChannel: "TechWorld with Nana",
+          videoId: "eaicwmnSdCs",
+          videoTitle: "Amazon/AWS EC2 (Elastic Compute Cloud) Basics",
+          videoChannel: "Create an EC2 Instance Tutorial",
           hasTerminal: true,
           terminalExercise: {
             instructions:
@@ -962,9 +962,9 @@ export const fullStackTrack: Track = {
           description:
             "Register domains, configure DNS records, set up hosted zones, and point your domain to your application on AWS.",
           duration: "25 min",
-          videoId: "yRjSnFv3iqA",
-          videoTitle: "AWS Route53 Tutorial",
-          videoChannel: "TechWorld with Nana",
+          videoId: "JRZiQFVWpi8",
+          videoTitle: "Amazon Route 53 Basics Tutorial",
+          videoChannel: "Domain Registration, A Records, CNAME Records, Aliases, Subdomains",
           hasTerminal: false,
         },
         {
@@ -973,9 +973,9 @@ export const fullStackTrack: Track = {
           description:
             "Use S3 for static website hosting, file uploads, pre-signed URLs, and serving assets through CloudFront CDN.",
           duration: "30 min",
-          videoId: "tfU0JEZjFcc",
-          videoTitle: "AWS S3 Tutorial for Beginners",
-          videoChannel: "TechWorld with Nana",
+          videoId: "DkU6t-v8nzo",
+          videoTitle: "How to Upload Static Content on AWS S3 Bucket",
+          videoChannel: "Elite Technocrat",
           hasTerminal: true,
           terminalExercise: {
             instructions:
